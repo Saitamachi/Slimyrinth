@@ -1,0 +1,646 @@
+fileFormatVersion: 2
+guid: 4df3c9137521cfc4a8b104b7302343c1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 209137782230161866
+    second: slimyrinth elements_0
+  - first:
+      213: 7794901886016361446
+    second: slimyrinth elements_1
+  - first:
+      213: 6825143322420988438
+    second: slimyrinth elements_2
+  - first:
+      213: 1303581606283389663
+    second: slimyrinth elements_3
+  - first:
+      213: 7116456401210324705
+    second: slimyrinth elements_4
+  - first:
+      213: 5961554454717978844
+    second: slimyrinth elements_5
+  - first:
+      213: -1471924793148945964
+    second: slimyrinth elements_6
+  - first:
+      213: -7228393381744141609
+    second: slimyrinth elements_7
+  - first:
+      213: 4697712132175389332
+    second: slimyrinth elements_8
+  - first:
+      213: -516555763988160074
+    second: slimyrinth elements_9
+  - first:
+      213: 2380674909185807621
+    second: slimyrinth elements_10
+  - first:
+      213: -2626813891442534853
+    second: slimyrinth elements_11
+  - first:
+      213: -6991084573895033787
+    second: slimyrinth elements_12
+  - first:
+      213: 3957706226004974389
+    second: slimyrinth elements_13
+  - first:
+      213: 7867495021484515739
+    second: slimyrinth elements_14
+  - first:
+      213: -5135194750640144637
+    second: slimyrinth elements_15
+  - first:
+      213: -5545501215858543880
+    second: slimyrinth elements_16
+  - first:
+      213: 1767786511569341976
+    second: slimyrinth elements_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fire1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 4, y: -6}
+        - {x: 4, y: -1}
+        - {x: 0, y: 6}
+        - {x: -3, y: 1}
+        - {x: -4, y: -6}
+        - {x: -2, y: -7}
+        - {x: 2, y: -7}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16a219c1f887e774ca367d1e4ec251bc
+      internalID: -1309013958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 5, y: -3}
+        - {x: 5, y: 2}
+        - {x: 2, y: 5}
+        - {x: -2, y: 3}
+        - {x: -5, y: 1}
+        - {x: -5, y: -4}
+        - {x: 0, y: -7}
+        - {x: 2, y: -6}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ac1e7d21a515d444a29d1088f8ff620
+      internalID: 498990712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Water1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 3, y: -5}
+        - {x: 3, y: -2}
+        - {x: 1, y: 2}
+        - {x: 0, y: 4}
+        - {x: -1, y: 2}
+        - {x: -4, y: -3}
+        - {x: -3, y: -5}
+        - {x: -1, y: -7}
+        - {x: 1, y: -7}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f92687f0e181bec4c9ce4c109d12762e
+      internalID: 134703592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 4, y: -6}
+        - {x: 4, y: -1}
+        - {x: 0, y: 6}
+        - {x: -3, y: 1}
+        - {x: -4, y: -6}
+        - {x: -2, y: -7}
+        - {x: 2, y: -7}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c045b0b04baed343aa4f5ae8b6cd6bf
+      internalID: 1382014719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind2
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 5, y: -3}
+        - {x: 5, y: 2}
+        - {x: 2, y: 5}
+        - {x: -2, y: 3}
+        - {x: -5, y: 1}
+        - {x: -5, y: -4}
+        - {x: 0, y: -7}
+        - {x: 2, y: -6}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b0450b5b582575479ed826cad819a1c
+      internalID: -1924471513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Water2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 3, y: -5}
+        - {x: 3, y: -2}
+        - {x: 1, y: 2}
+        - {x: 0, y: 4}
+        - {x: -1, y: 2}
+        - {x: -4, y: -3}
+        - {x: -3, y: -5}
+        - {x: -1, y: -7}
+        - {x: 1, y: -7}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 063cf0d4fbd072c47ad0770f59c9e958
+      internalID: 432372465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29223843349feef43bcf17d0c1adda14
+      internalID: 1933278450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth elements_7
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb04499cd2bbf5d43a868601263b075a
+      internalID: -902859881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth elements_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1ab6e38ab982c54a94883603d1b0f8a
+      internalID: -1150040916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth elements_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0cc794e4114a944b919a44bb9985a97
+      internalID: -2036002868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth elements_10
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daa41e09130f2524e8ad21472bbc3ce7
+      internalID: 1244729644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth elements_11
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 744ab868410d87d4aa757d1a65849e51
+      internalID: 24219395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth elements_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cc090498065db547ac98a5203f0f5b7
+      internalID: -1093701607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth elements_13
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a2d3784598f12248973a9cd39f2c1ab
+      internalID: 1148842393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth elements_14
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73bb0e4f24736b94c822c41f1cf6dcf1
+      internalID: -459631004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth elements_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6beee04e5fae0a44a9b7c9e15fa339e
+      internalID: 50913751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth elements_16
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b9b81f7473cce24faf27c068789ff47
+      internalID: 1948387818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth elements_17
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fefabdac199c4744949ddaf5aaf281f
+      internalID: 1467713984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 147f50bad5f7cea44a2a20cc494bef36
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Fire1: -1309013958
+      Fire2: 1382014719
+      Fire3: 1933278450
+      Water1: 134703592
+      Water2: 432372465
+      Wind1: 498990712
+      Wind2: -1924471513
+      slimyrinth elements_10: 1244729644
+      slimyrinth elements_11: 24219395
+      slimyrinth elements_12: -1093701607
+      slimyrinth elements_13: 1148842393
+      slimyrinth elements_14: -459631004
+      slimyrinth elements_15: 50913751
+      slimyrinth elements_16: 1948387818
+      slimyrinth elements_17: 1467713984
+      slimyrinth elements_7: -902859881
+      slimyrinth elements_8: -1150040916
+      slimyrinth elements_9: -2036002868
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
