@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Data.Common;
-using UnityEditor;
 using UnityEngine;
 
 public class SlimeMovement : MonoBehaviour
@@ -98,7 +94,7 @@ public class SlimeMovement : MonoBehaviour
         if (isTouchingGround)
             zRotationValue = 0;
 
-        float moveInput = Input.GetAxis("Horizontal");
+        float moveInput = Input.GetAxisRaw("Horizontal");
 
         //Vector3 pivot = new Vector3(transform.position.x + hitbox.size.x / 2, transform.position.y - hitbox.size.y / 2, transform.position.z);
         //Vector3 relativePosition = transform.position - pivot;
@@ -116,7 +112,8 @@ public class SlimeMovement : MonoBehaviour
                 gameObject.transform.rotation = Quaternion.Euler(0, isTouchingCeiling ? 180 : 0, zRotationValue); // rotates right
             }
 
-            if(isTouchingCeiling && SlimeTouchingDirectionLiterally().y != -1){
+            if (isTouchingCeiling && SlimeTouchingDirectionLiterally().y != -1)
+            {
                 rigidBody.linearVelocityY += 0.5f;
             }
             //Debug.Log("pivot: " + pivot);
@@ -127,8 +124,9 @@ public class SlimeMovement : MonoBehaviour
             rigidBody.linearVelocity = new Vector2(moveInput * speed, rigidBody.linearVelocity.y);
             Debug.Log(rigidBody.linearVelocity);
         }
-        if(moveInput == 0 && (isTouchingCeiling || isTouchingGround)){
-            rigidBody.linearVelocity = new Vector2(rigidBody.linearVelocity.x*.9f, rigidBody.linearVelocity.y);
+        if (moveInput == 0 && (isTouchingCeiling || isTouchingGround))
+        {
+            rigidBody.linearVelocity = new Vector2(rigidBody.linearVelocity.x * .9f, rigidBody.linearVelocity.y);
         }
     }
 
@@ -147,7 +145,7 @@ public class SlimeMovement : MonoBehaviour
             zRotationValue = 90;
         }
 
-        float moveInput = Input.GetAxis("Vertical");
+        float moveInput = Input.GetAxisRaw("Vertical");
 
         //Vector3 pivot = new Vector3(transform.position.x + hitbox.size.x / 2, transform.position.y - hitbox.size.y / 2, transform.position.z);
         //Vector3 relativePosition = transform.position - pivot;
@@ -172,13 +170,15 @@ public class SlimeMovement : MonoBehaviour
             rigidBody.linearVelocity = new Vector2(rigidBody.linearVelocity.x, moveInput * speed);
 
         }
-        if(moveInput == 0 && (isTouchingWallLeft || isTouchingWallRight)){
-            rigidBody.linearVelocity = new Vector2(rigidBody.linearVelocity.x, rigidBody.linearVelocity.y*.9f);
+        if (moveInput == 0 && (isTouchingWallLeft || isTouchingWallRight))
+        {
+            rigidBody.linearVelocity = new Vector2(rigidBody.linearVelocity.x, rigidBody.linearVelocity.y * .9f);
         }
     }
 
     bool TouchingTiles()
     {
+
         bool isTouchingWallRight = Physics2D.Raycast(transform.position, transform.right, 0.45f, groundLayer);
         bool isTouchingWallLeft = Physics2D.Raycast(transform.position, -transform.right, 0.45f, groundLayer);
         bool isTouchingWallDown = Physics2D.Raycast(transform.position, -transform.up, 0.35f, groundLayer);
@@ -188,15 +188,22 @@ public class SlimeMovement : MonoBehaviour
 
     Vector2 SlimeTouchingDirectionLiterally()
     {
-        if (!TouchingTiles())
-            return Vector2.zero;
+        Vector3 bottomCenter = new Vector3(transform.position.x, transform.position.y, 0f);
+        Vector3 bottomLeft = new Vector3(transform.position.x - 0.45f, transform.position.y, 0f);
+        Vector3 bottomRight = new Vector3(transform.position.x + 0.45f, transform.position.y, 0f);
+
+        
         Vector2 vector = new Vector2();
         if (Physics2D.Raycast(transform.position, -transform.right, 0.45f, groundLayer))
             vector.x = -1;
         if (Physics2D.Raycast(transform.position, transform.right, 0.45f, groundLayer))
             vector.x = 1;
-        if (Physics2D.Raycast(transform.position, -transform.up, 0.32f, groundLayer))
+        if (Physics2D.Raycast(bottomCenter, -transform.up, 0.32f, groundLayer) ||
+        Physics2D.Raycast(bottomLeft, -transform.up, 0.32f, groundLayer) ||
+        Physics2D.Raycast(bottomRight, -transform.up, 0.32f, groundLayer))
+        {
             vector.y = -1;
+        }
         if (Physics2D.Raycast(transform.position, transform.up, 0.32f, groundLayer))
             vector.y = 1;
         return vector;
@@ -204,8 +211,7 @@ public class SlimeMovement : MonoBehaviour
 
     Vector2 SlimeTouchingDirection()
     {
-        if (!TouchingTiles())
-            return Vector2.zero;
+
         Vector2 vector = new Vector2();
         if (Physics2D.Raycast(transform.position, Vector2.left, 0.45f, groundLayer))
             vector.x = -1;
@@ -249,6 +255,7 @@ public class SlimeMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Jumping");
+            Debug.Log(SlimeTouchingDirectionLiterally().y);
             if (SlimeTouchingDirectionLiterally().y == -1)
             {
                 Debug.Log("Touching Ground:" + slimeUp * jumpForce);
@@ -257,5 +264,30 @@ public class SlimeMovement : MonoBehaviour
             }
         }
     }
-  
+    void OnDrawGizmosSelected()
+    {
+        if (hitbox == null) return;
+
+        Gizmos.color = Color.green;
+
+        Vector2 center = (Vector2)transform.position + hitbox.offset;
+        float halfWidth = hitbox.size.x * 0.5f;
+        float halfHeight = hitbox.size.y * 0.5f;
+
+
+        // Draw Rays
+        Gizmos.DrawSphere(new Vector3(transform.position.x - .45f, transform.position.y - .32f, 5), .01f);
+        Gizmos.DrawSphere(new Vector3(transform.position.x + .45f, transform.position.y - .32f, 5), .01f);
+        Gizmos.DrawSphere(new Vector3(center.x, transform.position.y - .32f, 5), .01f);
+
+
+        Vector3 bottomCenter = new Vector3(transform.position.x, transform.position.y, 0f);
+        Vector3 bottomLeft = new Vector3(transform.position.x - 0.45f, transform.position.y, 0f);
+        Vector3 bottomRight = new Vector3(transform.position.x + 0.45f, transform.position.y, 0f);
+        Debug.DrawRay(bottomCenter, -transform.up * 0.33f, Color.red);
+        Debug.DrawRay(bottomLeft, -transform.up * 0.33f, Color.red);
+        Debug.DrawRay(bottomRight, -transform.up * 0.33f, Color.red);
+
+    }
+
 }

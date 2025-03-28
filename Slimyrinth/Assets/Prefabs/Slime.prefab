@@ -181,8 +181,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 6815770832483228734}
-  speed: 5
-  jumpForce: 10
+  speed: 3
+  jumpForce: 8
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
