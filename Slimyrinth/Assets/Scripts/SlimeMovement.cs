@@ -36,6 +36,8 @@ public class SlimeMovement : MonoBehaviour
 
         if (TouchingTiles())
         {
+
+
             //Debug.Log(transform.right);
             Vector2 collision = SlimeTouchingDirection();
             Vector2 collisionLiterally = SlimeTouchingDirectionLiterally();
@@ -101,17 +103,17 @@ public class SlimeMovement : MonoBehaviour
         //Vector3 pivot = new Vector3(transform.position.x + hitbox.size.x / 2, transform.position.y - hitbox.size.y / 2, transform.position.z);
         //Vector3 relativePosition = transform.position - pivot;
 
-
-        if (moveInput != 0 && (isTouchingCeiling || isTouchingGround))
+        Debug.Log(WallTouchingDirection().y == -1);
+        if (moveInput != 0 && ((isTouchingCeiling || isTouchingGround) || (Mathf.Approximately(transform.eulerAngles.z, 0f))))
         {
             if (moveInput < 0) // left
             {
 
-                gameObject.transform.rotation = Quaternion.Euler(0, isTouchingGround ? 180 : 0, zRotationValue); // rotates left 
+                gameObject.transform.rotation = Quaternion.Euler(0, isTouchingCeiling ? 0 : 180, zRotationValue); // rotates left 
             }
             else if (moveInput > 0) // right
             {
-                gameObject.transform.rotation = Quaternion.Euler(0, isTouchingGround ? 0 : 180, zRotationValue); // rotates right
+                gameObject.transform.rotation = Quaternion.Euler(0, isTouchingCeiling ? 180 : 0, zRotationValue); // rotates right
             }
 
             if(isTouchingCeiling && SlimeTouchingDirectionLiterally().y != -1){
@@ -123,6 +125,10 @@ public class SlimeMovement : MonoBehaviour
 
             // im moving left or right
             rigidBody.linearVelocity = new Vector2(moveInput * speed, rigidBody.linearVelocity.y);
+            Debug.Log(rigidBody.linearVelocity);
+        }
+        if(moveInput == 0 && (isTouchingCeiling || isTouchingGround)){
+            rigidBody.linearVelocity = new Vector2(rigidBody.linearVelocity.x*.9f, rigidBody.linearVelocity.y);
         }
     }
 
@@ -165,6 +171,9 @@ public class SlimeMovement : MonoBehaviour
 
             rigidBody.linearVelocity = new Vector2(rigidBody.linearVelocity.x, moveInput * speed);
 
+        }
+        if(moveInput == 0 && (isTouchingWallLeft || isTouchingWallRight)){
+            rigidBody.linearVelocity = new Vector2(rigidBody.linearVelocity.x, rigidBody.linearVelocity.y*.9f);
         }
     }
 
@@ -244,7 +253,9 @@ public class SlimeMovement : MonoBehaviour
             {
                 Debug.Log("Touching Ground:" + slimeUp * jumpForce);
                 rigidBody.linearVelocity += slimeUp * jumpForce;
+
             }
         }
     }
+  
 }
