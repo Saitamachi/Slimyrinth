@@ -10,6 +10,7 @@ public class SlimeMovement : MonoBehaviour
     public float speed = 5f;
     public float jumpForce = 10f;
     public LayerMask groundLayer;
+    public LayerMask waterLayer;
     public Transform groundCheck;
     public BoxCollider2D hitbox;
     public Animator animator;
@@ -71,6 +72,11 @@ public class SlimeMovement : MonoBehaviour
             rigidBody.gravityScale = 0;
 
 
+        }
+        else if (TouchingWater() && !isRotating)
+        {
+            rigidBody.gravityScale = 1;
+            gameObject.transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
         }
         else if (!isRotating)
         {
@@ -174,6 +180,16 @@ public class SlimeMovement : MonoBehaviour
         bool isTouchingWallDown = Physics2D.Raycast(transform.position, -transform.up, 0.35f, groundLayer);
         bool isTouchingWallUp = Physics2D.Raycast(transform.position, transform.up, 0.35f, groundLayer);
         return isTouchingWallDown || isTouchingWallLeft || isTouchingWallRight || isTouchingWallUp;
+    }
+
+    bool TouchingWater()
+    {
+        Vector2 colliderSize = hitbox.size;
+        Vector2 colliderCenter = hitbox.bounds.center;
+
+        Collider2D[] hits = Physics2D.OverlapBoxAll(colliderCenter, colliderSize, 0f, waterLayer);
+
+        return hits.Length > 0;
     }
 
     Vector2 SlimeTouchingDirectionLiterally()
@@ -301,17 +317,17 @@ public class SlimeMovement : MonoBehaviour
             {
                 newX = Mathf.Ceil(transform.position.x / grid) * grid;
                 Debug.Log(newX);
-                StartCoroutine(MoveEdgeOverTime(new Vector2(newX + hitbox.size.x / 2 - .25f - transform.position.x, input.y / 2* 1.1f)));
+                StartCoroutine(MoveEdgeOverTime(new Vector2(newX + hitbox.size.x / 2 - .25f - transform.position.x, input.y / 2 * 1.1f)));
             }
             else if (input.x < 0)
             {
                 newX = Mathf.Floor(transform.position.x / grid) * grid;
-                StartCoroutine(MoveEdgeOverTime(new Vector2(newX - hitbox.size.y / 2 + .1f- transform.position.x, input.y / 2 * 1.1f)));
+                StartCoroutine(MoveEdgeOverTime(new Vector2(newX - hitbox.size.y / 2 + .1f - transform.position.x, input.y / 2 * 1.1f)));
             }
             else
             {
                 newX = Mathf.Round(transform.position.x / grid) * grid;
-                StartCoroutine(MoveEdgeOverTime(new Vector2(newX - transform.position.x, input.y / 2* 1.2f)));
+                StartCoroutine(MoveEdgeOverTime(new Vector2(newX - transform.position.x, input.y / 2 * 1.2f)));
             }
         }
     }
