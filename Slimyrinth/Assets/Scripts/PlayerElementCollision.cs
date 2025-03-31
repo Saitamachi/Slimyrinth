@@ -4,16 +4,20 @@ using UnityEngine.Tilemaps;
 
 public class PlayerElementCollision : MonoBehaviour
 {
-    public Tilemap tilemap;  // Reference to your Tilemap
-    public string elementTag = "Elements";  // Tag of the Tilemap
+    public Tilemap tilemap; 
+    public string elementTag = "Elements"; 
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(elementTag))
+        if (collision.gameObject.CompareTag(elementTag)) // if collides with elements layer tile map
         {
-        Debug.Log(collision.name);
-            Destroy(collision.gameObject);
-            
+            GetSlimeSprite script = collision.gameObject.GetComponent<GetSlimeSprite>(); // gets the script with the sprite
+            if (script != null)
+            {
+                SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+                spriteRenderer.sprite = script.GetSprite();
+                Destroy(collision.gameObject);
+            }
         }
     }
 }

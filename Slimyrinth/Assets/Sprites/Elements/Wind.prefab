@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5924532901046055652}
   - component: {fileID: 8864840166045064325}
   - component: {fileID: 2696027350692318444}
+  - component: {fileID: -1260262917360109616}
   m_Layer: 0
   m_Name: Wind
   m_TagString: Elements
@@ -180,3 +181,16 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &-1260262917360109616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015939061732293155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8074186b276ca9d478c7667d23c95df5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slimeSprite: {fileID: 5211339675215801455, guid: 96def43510e022a49b5daf20dbf0d7fa, type: 3}
