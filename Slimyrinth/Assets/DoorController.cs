@@ -11,6 +11,7 @@ public class DoorController : MonoBehaviour
 
     public void Activate(bool status)
     {
+        Debug.Log("Door: Activate");
         if (status)
             Open();
         else
@@ -21,14 +22,14 @@ public class DoorController : MonoBehaviour
 
     public void Open()
     {
+        Debug.Log("Door: Open");
         StartCoroutine(Animation(3f * -transform.right));
-        Debug.Log(transform.right);
     }
 
     public void Close()
     {
+        Debug.Log("Door: Close");
         StartCoroutine(Animation(3f * transform.right));
-
     }
 
     IEnumerator Animation(Vector3 offset)
