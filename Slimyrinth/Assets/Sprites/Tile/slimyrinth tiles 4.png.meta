@@ -182,8 +182,8 @@ TextureImporter:
       name: slimyrinth tiles 4_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 96
+        x: 48
+        y: 112
         width: 16
         height: 16
       alignment: 0
@@ -204,8 +204,8 @@ TextureImporter:
       name: slimyrinth tiles 4_4
       rect:
         serializedVersion: 2
-        x: 16
-        y: 96
+        x: 64
+        y: 112
         width: 16
         height: 16
       alignment: 0
@@ -226,8 +226,8 @@ TextureImporter:
       name: slimyrinth tiles 4_5
       rect:
         serializedVersion: 2
-        x: 32
-        y: 96
+        x: 80
+        y: 112
         width: 16
         height: 16
       alignment: 0
@@ -249,7 +249,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 80
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -271,7 +271,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 80
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -293,7 +293,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 80
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -314,8 +314,8 @@ TextureImporter:
       name: slimyrinth tiles 4_9
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
+        x: 48
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -336,8 +336,8 @@ TextureImporter:
       name: slimyrinth tiles 4_10
       rect:
         serializedVersion: 2
-        x: 16
-        y: 64
+        x: 64
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -358,8 +358,8 @@ TextureImporter:
       name: slimyrinth tiles 4_11
       rect:
         serializedVersion: 2
-        x: 32
-        y: 64
+        x: 80
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -381,7 +381,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 48
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -403,7 +403,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 48
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -416,6 +416,534 @@ TextureImporter:
       bones: []
       spriteID: 2821224a4aa99cd4693d1a5c4edbee0a
       internalID: -33799404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth tiles 4_14
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a62f8644c2b9efd44882095c5a025a99
+      internalID: 1940970863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth tiles 4_15
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 112566e96f17c9348a8cbc15ec8b5c5b
+      internalID: 2048041877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth tiles 4_16
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9baf1d3e80fcacc43afcdc6a2d295c36
+      internalID: 331692272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth tiles 4_17
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fed4d60ff79809c48bc215739d5be05d
+      internalID: -1869403811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth tiles 4_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b89818c242c2f834fb7b9e855c8b651b
+      internalID: 340467093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth tiles 4_19
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d54396b87d68c848b395a813ad7eebb
+      internalID: 583505514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth tiles 4_20
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 849c0945bf3fb0542a6060453000ff58
+      internalID: 1053206930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth tiles 4_21
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00d6cb690dd5faf49adf63a89fc3a8fe
+      internalID: 1808542620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth tiles 4_22
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13408a2f1ff104b4eb87db2d8f8ae62e
+      internalID: -1311793598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth tiles 4_23
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef2daaf2a8b97154bb5d18a59fdb7b39
+      internalID: 72440674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth tiles 4_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24dc204433f81554eab09d2c30db3da2
+      internalID: -1084084548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth tiles 4_25
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab51371c6792cbe4e9727dea98f0cc6a
+      internalID: 312099627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth tiles 4_26
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9bfc7bd1cd9bd54eb3d273c57a29a64
+      internalID: -694647823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth tiles 4_27
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 682433972189aaa4bbc47af15d86293e
+      internalID: 1027053822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth tiles 4_28
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 015f0ce3f4b828c4185c05fb6c414c0d
+      internalID: 367523884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth tiles 4_29
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69605bfa635d14646a87dcc34bb69d9f
+      internalID: -350095902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth tiles 4_30
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b84dd46f42e7494985b72b14413a2c3
+      internalID: 1556552551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth tiles 4_31
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d23acb5ec1c3940449f36599bce92d1e
+      internalID: -1160057782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth tiles 4_32
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a93004bd7920d7841a4c3856882df1f7
+      internalID: -833425240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth tiles 4_33
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a146a9e353db1940913d21e72ceefb2
+      internalID: 48745916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth tiles 4_34
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 263efc0fd67d11e40b619eae034d3eb9
+      internalID: -1363398289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth tiles 4_35
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 489ef444c269ffc4bb1f23f026305091
+      internalID: -652796731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth tiles 4_36
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32ff84481a3316543b7ef0fdb4873105
+      internalID: 80097714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimyrinth tiles 4_37
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d5b659e45a16304281ad91b09570c60
+      internalID: -6888189
       vertices: []
       indices: 
       edges: []
@@ -440,8 +968,32 @@ TextureImporter:
       slimyrinth tiles 4_11: -1488711535
       slimyrinth tiles 4_12: -1021068907
       slimyrinth tiles 4_13: -33799404
+      slimyrinth tiles 4_14: 1940970863
+      slimyrinth tiles 4_15: 2048041877
+      slimyrinth tiles 4_16: 331692272
+      slimyrinth tiles 4_17: -1869403811
+      slimyrinth tiles 4_18: 340467093
+      slimyrinth tiles 4_19: 583505514
       slimyrinth tiles 4_2: -1759483595
+      slimyrinth tiles 4_20: 1053206930
+      slimyrinth tiles 4_21: 1808542620
+      slimyrinth tiles 4_22: -1311793598
+      slimyrinth tiles 4_23: 72440674
+      slimyrinth tiles 4_24: -1084084548
+      slimyrinth tiles 4_25: 312099627
+      slimyrinth tiles 4_26: -694647823
+      slimyrinth tiles 4_27: 1027053822
+      slimyrinth tiles 4_28: 367523884
+      slimyrinth tiles 4_29: -350095902
       slimyrinth tiles 4_3: 1295513042
+      slimyrinth tiles 4_30: 1556552551
+      slimyrinth tiles 4_31: -1160057782
+      slimyrinth tiles 4_32: -833425240
+      slimyrinth tiles 4_33: 48745916
+      slimyrinth tiles 4_34: -1363398289
+      slimyrinth tiles 4_35: -652796731
+      slimyrinth tiles 4_36: 80097714
+      slimyrinth tiles 4_37: -6888189
       slimyrinth tiles 4_4: 1686275209
       slimyrinth tiles 4_5: -1709775420
       slimyrinth tiles 4_6: 1423720773

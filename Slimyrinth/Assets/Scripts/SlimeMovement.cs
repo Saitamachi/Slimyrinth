@@ -75,6 +75,7 @@ public class SlimeMovement : MonoBehaviour
         }
         else if (TouchingWater() && !isRotating)
         {
+            Debug.Log("Collision: Water");
             rigidBody.gravityScale = 1;
             gameObject.transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
         }
