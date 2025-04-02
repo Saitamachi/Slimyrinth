@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5f299c6e24bd01345ac426c4f57b4fe7
+guid: ae616b8b810b1234795b2fac8f520497
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5129910962660697292
-    second: slimyrinth tiles 4_0
+      213: 7932798033344189819
+    second: grass_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: slimyrinth tiles 4_0
+      name: grass_0
       rect:
         serializedVersion: 2
         x: 0
@@ -121,21 +121,21 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 43b1a3da825eec8b0800000000000000
-      internalID: -5129910962660697292
+      spriteID: b75d56418c5f61e60800000000000000
+      internalID: 7932798033344189819
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimyrinth tiles 4_1
+      name: grass_1
       rect:
         serializedVersion: 2
         x: 16
@@ -143,21 +143,43 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39a0f9152a560f843a53e8cc756112af
-      internalID: 1784608925
+      spriteID: a239fc9b4b6685346b65a4f4c3f809af
+      internalID: 1473468724
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimyrinth tiles 4_2
+      name: grass_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51255aa0644e15a42ba9f0eae0503538
+      internalID: 664023179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_3
       rect:
         serializedVersion: 2
         x: 0
@@ -165,21 +187,21 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8e2764c9efff4143bcd0a46f68bde41
-      internalID: -1759483595
+      spriteID: 83b1258e0552447479dfc30b61e583e5
+      internalID: -1931654683
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimyrinth tiles 4_3
+      name: grass_4
       rect:
         serializedVersion: 2
         x: 16
@@ -187,21 +209,21 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0448f8f97fc94824c95bcefd93c6792d
-      internalID: 1295513042
+      spriteID: bae674b077f72b74db4ad5fcfd4c7d53
+      internalID: -710489762
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimyrinth tiles 4_4
+      name: grass_5
       rect:
         serializedVersion: 2
         x: 32
@@ -209,21 +231,21 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2ea8a6f70e69bb45af1eef7d78fe500
-      internalID: 1686275209
+      spriteID: 4a15ce70f162d564d96d2f69079a3c6d
+      internalID: 1266404826
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimyrinth tiles 4_5
+      name: grass_6
       rect:
         serializedVersion: 2
         x: 0
@@ -231,21 +253,21 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74581da73ea2e604e9b81f7fa8e29451
-      internalID: -1709775420
+      spriteID: 5a0da232e1843714eaa1f14cdbbf26c9
+      internalID: -1412458236
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimyrinth tiles 4_6
+      name: grass_7
       rect:
         serializedVersion: 2
         x: 16
@@ -253,21 +275,21 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53ba2a2fb085db54f889b49ac9e0a957
-      internalID: 1423720773
+      spriteID: 18371f8924246a045987569590460f70
+      internalID: 381261079
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimyrinth tiles 4_7
+      name: grass_8
       rect:
         serializedVersion: 2
         x: 32
@@ -275,21 +297,21 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 130e90be71f9f0440890e462c9efb7b6
-      internalID: 1476496486
+      spriteID: 06d062af5dacdee4a8c7a429b7348b9e
+      internalID: 1257213316
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimyrinth tiles 4_8
+      name: grass_9
       rect:
         serializedVersion: 2
         x: 0
@@ -297,21 +319,21 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c18aba14e856584aa565c02ffc9e43e
-      internalID: 496004813
+      spriteID: 0bbc134e6b23b4a4ea258912c41a1410
+      internalID: -125268500
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimyrinth tiles 4_9
+      name: grass_10
       rect:
         serializedVersion: 2
         x: 16
@@ -319,21 +341,21 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a77a948967eb9c840b2d9b20e7d33ece
-      internalID: 578022794
+      spriteID: fa5214201e0b1424a9a1727d759f4618
+      internalID: -1793978793
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimyrinth tiles 4_10
+      name: grass_11
       rect:
         serializedVersion: 2
         x: 32
@@ -341,21 +363,21 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cefa1b674d00b91479623239ab71cd37
-      internalID: -90986199
+      spriteID: dc3ad260a5c29a14ca72c530fc5155d2
+      internalID: 1100634288
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimyrinth tiles 4_11
+      name: grass_12
       rect:
         serializedVersion: 2
         x: 0
@@ -363,21 +385,21 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcbcce2c92193274bae156354e4f2136
-      internalID: -1488711535
+      spriteID: 09bea58be998bdd4c87d7d39d22e4591
+      internalID: 135220895
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimyrinth tiles 4_12
+      name: grass_13
       rect:
         serializedVersion: 2
         x: 16
@@ -385,37 +407,15 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c512d2609780b0e4bb9d7d5577bf5fa3
-      internalID: -1021068907
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: slimyrinth tiles 4_13
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2821224a4aa99cd4693d1a5c4edbee0a
-      internalID: -33799404
+      spriteID: 38f5ced759fd0844d879cfab92368dba
+      internalID: -1733940110
       vertices: []
       indices: 
       edges: []
@@ -424,7 +424,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 097966032ecb7e443af7009e7eab1608
+    spriteID: aa2c01e75910d5f46ac6f344ade4e41d
     internalID: 0
     vertices: []
     indices: 
@@ -434,20 +434,20 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      slimyrinth tiles 4_0: -5129910962660697292
-      slimyrinth tiles 4_1: 1784608925
-      slimyrinth tiles 4_10: -90986199
-      slimyrinth tiles 4_11: -1488711535
-      slimyrinth tiles 4_12: -1021068907
-      slimyrinth tiles 4_13: -33799404
-      slimyrinth tiles 4_2: -1759483595
-      slimyrinth tiles 4_3: 1295513042
-      slimyrinth tiles 4_4: 1686275209
-      slimyrinth tiles 4_5: -1709775420
-      slimyrinth tiles 4_6: 1423720773
-      slimyrinth tiles 4_7: 1476496486
-      slimyrinth tiles 4_8: 496004813
-      slimyrinth tiles 4_9: 578022794
+      grass_0: 7932798033344189819
+      grass_1: 1473468724
+      grass_10: -1793978793
+      grass_11: 1100634288
+      grass_12: 135220895
+      grass_13: -1733940110
+      grass_2: 664023179
+      grass_3: -1931654683
+      grass_4: -710489762
+      grass_5: 1266404826
+      grass_6: -1412458236
+      grass_7: 381261079
+      grass_8: 1257213316
+      grass_9: -125268500
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
