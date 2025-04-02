@@ -16,6 +16,8 @@ public class SlimeMovement : MonoBehaviour
     public Animator animator;
     bool isRotating = false;
 
+    SwimController swimController;
+
     public bool movingOverEdge = false;
 
 
@@ -23,6 +25,7 @@ public class SlimeMovement : MonoBehaviour
     private bool isGrounded;
     void Start()
     {
+        swimController = GetComponent<SwimController>();
         if (animator == null)
         {
             animator = GetComponent<Animator>();  // Get the Animator component if not assigned in the Inspector
@@ -37,6 +40,10 @@ public class SlimeMovement : MonoBehaviour
     void Movement()
     {
 
+        if (swimController.wet)
+        {
+            rigidBody.gravityScale = 1;
+        }
         if (TouchingTiles() && !isRotating)
         {
 
@@ -73,20 +80,22 @@ public class SlimeMovement : MonoBehaviour
 
 
         }
-        else if (TouchingWater() && !isRotating)
+        else if (!isRotating && !swimController.wet)
         {
-            Debug.Log("Collision: Water");
-            rigidBody.gravityScale = 1;
             gameObject.transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
+            rigidBody.gravityScale = 3;
+
         }
         else if (!isRotating)
         {
-            rigidBody.gravityScale = 3;
             gameObject.transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
         }
+
         HorizontalMovement();
         VerticalMovement();
+
         Handle270Degrees();
+
     }
 
 
