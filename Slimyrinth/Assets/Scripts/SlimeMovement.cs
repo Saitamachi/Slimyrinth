@@ -96,10 +96,44 @@ public class SlimeMovement : MonoBehaviour
 
         Handle270Degrees();
 
+
+
     }
+    // 
+    // 270 degrees feel slow and different from normal angles
+    // 270 degrees bug and go in the wall
+    // decorations were clearly decoration
+    // player could tell what was interactible and what wasnt. improvement: shiny, sound
+    // make it more visible what is a door and what is not
+    // normal movement felt fluid
+    // 
 
 
+    // what do you think of when you see the design?
+    // Playfull and arcadey
+    // can you tell the difference between interactibles and decoration?
+    // Yes
+    // could you tell what was the objective? how fast?
+    // No, solution make door more clear and add an end point
+    // what did you think of when you grabbed the collectibles?
+    // Expectation was he would be able to swap elements
+    // Notes: angles were not feeling good, with some bugs as mentioned above. Improvement hold only 1 key
+    // Wind slime did not look like wind, Water slime looked like ice
 
+    /*
+    - what do you think of when you see the design?
+    slimy. cute pixelated style, reminded me of gameboy graphics/NES. also the animal well indie game. locale looke dlike aztec something
+
+    - can you tell the difference between interactibles and decoration?
+    no, pillar looked interactible
+
+    - could you tell what was the objective? how fast?
+    no i didnt get wha tthe objective was, i ust wanted to use the lever but i didnt know why i would wanna do it.
+
+    - what did you think of when you grabbed the collectibles?
+    i thought what just happened to the slime? idk
+
+    */
 
     void HorizontalMovement()
     {
@@ -204,10 +238,12 @@ public class SlimeMovement : MonoBehaviour
 
     Vector2 SlimeTouchingDirectionLiterally()
     {
-        Vector3 bottomCenter = new Vector3(transform.position.x, transform.position.y, 0f);
-        Vector3 bottomLeft = new Vector3(transform.position.x - 0.45f, transform.position.y, 0f);
-        Vector3 bottomRight = new Vector3(transform.position.x + 0.45f, transform.position.y, 0f);
+        float yOffset = (transform.localScale.y > 0) ? 0f : 1f; // Adjust based on how flipping is implemented
+        float baseY = transform.position.y - yOffset;
 
+        Vector3 bottomCenter = new Vector3(transform.position.x, baseY, 0f);
+        Vector3 bottomLeft = new Vector3(transform.position.x - 0.45f, baseY, 0f);
+        Vector3 bottomRight = new Vector3(transform.position.x + 0.45f, baseY, 0f);
 
         Vector2 vector = new Vector2();
         if (Physics2D.Raycast(transform.position, -transform.right, 0.45f, groundLayer))
@@ -286,11 +322,10 @@ public class SlimeMovement : MonoBehaviour
         float halfWidth = hitbox.size.x * 0.5f;
         float halfHeight = hitbox.size.y * 0.5f;
 
-
         // Draw Rays
-        Gizmos.DrawSphere(new Vector3(transform.position.x - .45f, transform.position.y - .32f, 5), .01f);
-        Gizmos.DrawSphere(new Vector3(transform.position.x + .45f, transform.position.y - .32f, 5), .01f);
-        Gizmos.DrawSphere(new Vector3(center.x, transform.position.y - .32f, 5), .01f);
+        Gizmos.DrawSphere(new Vector3(transform.position.x - .45f, transform.position.y - .32f * transform.up.y, 5), .05f);
+        Gizmos.DrawSphere(new Vector3(transform.position.x + .45f, transform.position.y - .32f * transform.up.y, 5), .05f);
+        Gizmos.DrawSphere(new Vector3(center.x, transform.position.y - .32f * transform.up.y, 5), .05f);
 
 
         Vector3 bottomCenter = new Vector3(transform.position.x, transform.position.y, 0f);
@@ -312,8 +347,11 @@ public class SlimeMovement : MonoBehaviour
         bool back = Physics2D.Raycast(bottomLeft, -transform.up, 0.32f, groundLayer);
         bool front = Physics2D.Raycast(bottomRight, -transform.up, 0.32f, groundLayer);
 
+        Debug.Log("center: " + center);
+        Debug.Log("back: " + back);
+        Debug.Log("front: " + front);
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        if (back && center && !front && input.x != 0 && input.y != 0)
+        if (back && center && !front && (input.x != 0 || input.y != 0))
         {
 
             isRotating = true;
@@ -321,23 +359,33 @@ public class SlimeMovement : MonoBehaviour
 
             float grid = 1f;
             float newX = 0f;
+
+            Vector2 direction = SlimeTouchingDirection();
+            Debug.Log(direction);
+            if (direction.x != 0 && input.y == 0) // if on vertical wall and not pressing vertical movement
+                return;
+
+            if (direction.y != 0 && input.x == 0) // if on horizontal wall and not pressing vertical movement
+                return;
+
+
             Vector2 directionToGo = transform.forward;
             Debug.Log("forward: " + input);
             if (input.x > 0)
             {
                 newX = Mathf.Ceil(transform.position.x / grid) * grid;
                 Debug.Log(newX);
-                StartCoroutine(MoveEdgeOverTime(new Vector2(newX + hitbox.size.x / 2 - .25f - transform.position.x, input.y / 2 * 1.1f)));
+                StartCoroutine(MoveEdgeOverTime(new Vector2(newX + hitbox.size.x / 2 - .25f - transform.position.x, direction.y / 2 * 1.1f)));
             }
             else if (input.x < 0)
             {
                 newX = Mathf.Floor(transform.position.x / grid) * grid;
-                StartCoroutine(MoveEdgeOverTime(new Vector2(newX - hitbox.size.y / 2 + .1f - transform.position.x, input.y / 2 * 1.1f)));
+                StartCoroutine(MoveEdgeOverTime(new Vector2(newX - hitbox.size.y / 2 + .1f - transform.position.x, direction.y / 2 * 1.1f)));
             }
             else
             {
                 newX = Mathf.Round(transform.position.x / grid) * grid;
-                StartCoroutine(MoveEdgeOverTime(new Vector2(newX - transform.position.x, input.y / 2 * 1.2f)));
+                StartCoroutine(MoveEdgeOverTime(new Vector2(newX - transform.position.x, direction.y / 2 * 1.2f)));
             }
         }
     }
@@ -420,10 +468,10 @@ public class SlimeMovement : MonoBehaviour
         Debug.Log(targetRotation.eulerAngles);
         float elapsedTime = 0f;
         rigidBody.linearVelocity = Vector2.zero;
-        while (elapsedTime < 0.5f)
+        while (elapsedTime < 0.2f)
         {
             GetComponent<Collider2D>().isTrigger = true;
-            float fraction = elapsedTime / 0.5f;
+            float fraction = elapsedTime / 0.2f;
             transform.position = Vector3.Lerp(startPosition, targetPosition, fraction);
             elapsedTime += Time.deltaTime;
             yield return null;
@@ -433,10 +481,10 @@ public class SlimeMovement : MonoBehaviour
 
         elapsedTime = 0f;
 
-        while (elapsedTime < 0.5f)
+        while (elapsedTime < 0.1f)
         {
 
-            float fraction = elapsedTime / 0.5f;
+            float fraction = elapsedTime / 0.1f;
             transform.rotation = Quaternion.Lerp(startRotation, targetRotation, fraction);
             elapsedTime += Time.deltaTime;
             yield return null;
@@ -445,31 +493,23 @@ public class SlimeMovement : MonoBehaviour
 
         elapsedTime = 0f;
 
-        while (elapsedTime < 0.3f)
+        while (elapsedTime < 0.1f)
         {
             Debug.Log(isRotating);
             Debug.Log(transform.rotation.eulerAngles);
-            float fraction = elapsedTime / 0.3f;
+            float fraction = elapsedTime / 0.1f;
             transform.position = Vector3.Lerp(targetPosition, targetPosition2, fraction);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
         transform.position = targetPosition2;
 
-        while (elapsedTime < 0.5f)
-        {
-            Debug.Log(isRotating);
-            Debug.Log(transform.rotation.eulerAngles);
-            float fraction = elapsedTime / 0.5f;
-            transform.position = Vector3.Lerp(targetPosition, targetPosition2, fraction);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
+
         transform.position = targetPosition2;
         GetComponent<Collider2D>().isTrigger = false;
 
 
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.1f);
 
         isRotating = false;
 
