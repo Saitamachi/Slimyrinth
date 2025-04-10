@@ -15,9 +15,11 @@ public class SettingsMenuToggle : MonoBehaviour
     }
     void Update()
     {
+        isOpen = settingsPanel.activeInHierarchy;
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
             isOpen = !isOpen;
+            
             settingsPanel.SetActive(isOpen);
         }
 
