@@ -21,6 +21,8 @@ public class SlimeMovement : MonoBehaviour
 
     private Vector2 edgeMovement;
     private bool isGrounded;
+
+    public bool isPaused = false;
     void Start()
     {
         swimController = GetComponent<SwimController>();
@@ -148,7 +150,7 @@ public class SlimeMovement : MonoBehaviour
 
         float moveInput = Input.GetAxisRaw("Horizontal");
 
-        if (moveInput != 0 && ((isTouchingCeiling || isTouchingGround) || (Mathf.Approximately(transform.eulerAngles.z, 0f))) && !movingOverEdge && !isRotating)
+        if (moveInput != 0 && ((isTouchingCeiling || isTouchingGround) || (Mathf.Approximately(transform.eulerAngles.z, 0f))) && !movingOverEdge && !isRotating && !isPaused)
         {
             if (moveInput < 0) // left
             {
@@ -200,7 +202,7 @@ public class SlimeMovement : MonoBehaviour
         float moveInput = Input.GetAxisRaw("Vertical");
 
 
-        if (moveInput != 0 && (isTouchingWallLeft || isTouchingWallRight) && !movingOverEdge && !isRotating)
+        if (moveInput != 0 && (isTouchingWallLeft || isTouchingWallRight) && !movingOverEdge && !isRotating && !isPaused)
         {
             Debug.Log("rotating2");
 
