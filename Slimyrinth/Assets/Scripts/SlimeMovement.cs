@@ -1,8 +1,6 @@
-using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class SlimeMovement : MonoBehaviour
 {
@@ -21,6 +19,8 @@ public class SlimeMovement : MonoBehaviour
     public bool movingOverEdge = false;
 
 
+    private Vector2 edgeMovement;
+    private bool isGrounded;
     void Start()
     {
         swimController = GetComponent<SwimController>();
@@ -34,111 +34,68 @@ public class SlimeMovement : MonoBehaviour
     {
         Movement();
         Jump();
-
-        bool[] hits = CheckCollisionAtPoints(GetCollisionPointsWithRotation(hitbox), hitbox, groundLayer);
-
-        //Debug.Log("ROTATION: " + GetCollisionDirection(GetCollisionPointsWithRotation(hitbox), groundLayer, 0.02f)); // returns the vector2 of collision with rotation
-        //Debug.Log("NO ROTATION: " + GetCollisionDirection(GetCollisionPointsNoRotation(hitbox), groundLayer, 0.02f)); // returns the vector2 of collision without rotation
     }
     void Movement()
     {
-        Vector2 collisionDirections = GetCollisionDirection(GetCollisionPointsWithRotation(hitbox), groundLayer);
-        Debug.Log("CollisionDirection: " + collisionDirections);
 
-
-        if (collisionDirections == Vector2.zero)
+        if (swimController.wet)
         {
-        }
-
-        if (collisionDirections != Vector2.zero)
-        {//if im colliding
-            rigidBody.gravityScale = 0;
-
-            if (collisionDirections.y != -1)
-            {// if not grounded
-                if (collisionDirections.x != 0)
-                {
-                    transform.Rotate(new Vector3(0, 0, 1), 90f);
-                    transform.position += .1f * -transform.up;
-                }
-
-                if (collisionDirections.y == 1)
-                {// if colliding with top side of slime
-                    //transform.Rotate(new Vector3(0, 0, 1), 180f);
-                    transform.rotation = new Quaternion(0, rigidBody.linearVelocityX < 0 ? 180 : 0, 180, 0);
-                    transform.position += .1f * -transform.up;
-                }
-            }
-
-
-        }
-        else if (swimController.wet && collisionDirections == Vector2.zero)
-        {
-            transform.rotation = new Quaternion(0, rigidBody.linearVelocityX < 0 ? 180 : 0, 0, 0);
             rigidBody.gravityScale = 1;
         }
-        else if (!swimController.wet && collisionDirections == Vector2.zero)
+        if (TouchingTiles() && !isRotating)
         {
-            transform.rotation = new Quaternion(0, rigidBody.linearVelocityX < 0 ? 180 : 0, 0, 0);
-            rigidBody.gravityScale = 3;
+
+
+            Vector2 collision = SlimeTouchingDirection();
+            Vector2 collisionLiterally = SlimeTouchingDirectionLiterally();
+            // touching right only but player not facing right
+            if (collision.x == 1 && collisionLiterally.y != -1 && collision.y == 0)
+            {
+                gameObject.transform.rotation = Quaternion.Euler(transform.eulerAngles.x, 0, 90);
+                rigidBody.linearVelocity = new Vector2(5, rigidBody.linearVelocity.y);
+            }
+            // touching left &&  under is not left   &&   no vertical collision
+            else if (collision.x == -1 && collisionLiterally.y != -1 && collision.y == 0)
+            {
+                Debug.Log("rotating1");
+                gameObject.transform.rotation = Quaternion.Euler(transform.eulerAngles.x, 0, 270);
+                rigidBody.linearVelocity = new Vector2(-5, rigidBody.linearVelocity.y);
+            }
+            // touching bottom only but player not facing bottom
+            else if (collision.y == -1 && collisionLiterally.y != -1 && collision.x == 0)
+            {
+                gameObject.transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
+                rigidBody.linearVelocity = new Vector2(rigidBody.linearVelocity.x, -5);
+            }
+            //touching top      &&  under is not top       &&    no horizontal collision
+
+            else if (collision.y == 1 && collisionLiterally.y != -1 && collision.x == 0)
+            {
+                gameObject.transform.rotation = Quaternion.Euler(0, Mathf.Approximately(transform.eulerAngles.y, 180f) ? 0 : 180, 180);
+                rigidBody.linearVelocity = new Vector2(rigidBody.linearVelocity.x, 5);
+            }
+            rigidBody.gravityScale = 0;
+
+
         }
+        else if (!isRotating && !swimController.wet)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, rigidBody.linearVelocity.x > 0 ? 0 : 180, 0);
+            rigidBody.gravityScale = 3;
 
-
-
-
-
-        // else if (!isRotating && !swimController.wet)
-        // {
-        //     gameObject.transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
-        //     rigidBody.gravityScale = 3;
-
-        // }
-        // else if (!isRotating)
-        // {
-        //     gameObject.transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
-        // }
-        // if (TouchingTiles() && !isRotating)
-        // {
-
-
-        //     Vector2 collision = SlimeTouchingDirection();
-        //     Vector2 collisionLiterally = SlimeTouchingDirectionLiterally();
-        //     // touching right only but player not facing right
-        //     if (collision.x == 1 && collisionLiterally.y != -1 && collision.y == 0)
-        //     {
-        //         gameObject.transform.rotation = Quaternion.Euler(transform.eulerAngles.x, 0, 90);
-        //         rigidBody.linearVelocity = new Vector2(5, rigidBody.linearVelocity.y);
-        //     }
-        //     // touching left &&  under is not left   &&   no vertical collision
-        //     else if (collision.x == -1 && collisionLiterally.y != -1 && collision.y == 0)
-        //     {
-        //         Debug.Log("rotating1");
-        //         gameObject.transform.rotation = Quaternion.Euler(transform.eulerAngles.x, 0, 270);
-        //         rigidBody.linearVelocity = new Vector2(-5, rigidBody.linearVelocity.y);
-        //     }
-        //     // touching bottom only but player not facing bottom
-        //     else if (collision.y == -1 && collisionLiterally.y != -1 && collision.x == 0)
-        //     {
-        //         gameObject.transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
-        //         rigidBody.linearVelocity = new Vector2(rigidBody.linearVelocity.x, -5);
-        //     }
-        //     //touching top      &&  under is not top       &&    no horizontal collision
-
-        //     else if (collision.y == 1 && collisionLiterally.y != -1 && collision.x == 0)
-        //     {
-        //         gameObject.transform.rotation = Quaternion.Euler(0, Mathf.Approximately(transform.eulerAngles.y, 180f) ? 0 : 180, 180);
-        //         rigidBody.linearVelocity = new Vector2(rigidBody.linearVelocity.x, 5);
-        //     }
-        //     rigidBody.gravityScale = 0;
-
-
-        // }
-
+        }
+        else if (!isRotating)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, rigidBody.linearVelocity.x > 0 ? 0 : 180, 0);
+        }
 
         HorizontalMovement();
         VerticalMovement();
 
-        Handle270Degrees();
+        //Handle270Degrees();
+
+
+
     }
     // 
     // 270 degrees feel slow and different from normal angles
@@ -178,36 +135,20 @@ public class SlimeMovement : MonoBehaviour
 
     void HorizontalMovement()
     {
+        if (isRotating)
+            return;
         int zRotationValue = 0;
-
-        Vector2 collisionDirections = GetCollisionDirection(GetCollisionPointsWithRotation(hitbox), groundLayer);
-
-        bool isTouchingCeiling = (-(Vector2)transform.right == Vector2.up && collisionDirections.x == -1) || ((Vector2)transform.right == Vector2.up && collisionDirections.x == 1) || (-(Vector2)transform.up == Vector2.up && collisionDirections.y == -1);
-        Debug.Log("isTouchingCeiling: " + isTouchingCeiling);
+        bool isTouchingCeiling = Physics2D.Raycast(transform.position, Vector2.up, 0.45f, groundLayer);
         if (isTouchingCeiling)
             zRotationValue = 180;
 
-
-        bool isTouchingGround = (-(Vector2)transform.right == Vector2.down && collisionDirections.x == -1) || ((Vector2)transform.right == Vector2.down && collisionDirections.x == 1) || (-(Vector2)transform.up == Vector2.down && collisionDirections.y == -1);
-        Debug.Log("isTouchingGround: " + isTouchingGround);
+        bool isTouchingGround = Physics2D.Raycast(transform.position, Vector2.down, 0.45f, groundLayer);
         if (isTouchingGround)
             zRotationValue = 0;
 
         float moveInput = Input.GetAxisRaw("Horizontal");
 
-        if (moveInput != 0 && isTouchingCeiling && -(Vector2)transform.up != Vector2.up)
-        {//if im touching ceiling but not on ceiling
-            transform.Rotate(new Vector3(0, 0, 1), 90f);
-            rigidBody.linearVelocity = new Vector2(moveInput * speed, 1.5f);
-        }
-
-        if (moveInput != 0 && isTouchingGround && -(Vector2)transform.up != Vector2.down)
-        {//if im touching floor but not on floor
-            transform.Rotate(new Vector3(0, 0, 1), 90f);
-            rigidBody.linearVelocity = new Vector2(moveInput * speed, -1.5f);
-        }
-
-        if (moveInput != 0 && (isTouchingCeiling && -(Vector2)transform.up == Vector2.up || isTouchingGround && -(Vector2)transform.up == Vector2.down) || collisionDirections == Vector2.zero)
+        if (moveInput != 0 && ((isTouchingCeiling || isTouchingGround) || (Mathf.Approximately(transform.eulerAngles.z, 0f))) && !movingOverEdge && !isRotating)
         {
             if (moveInput < 0) // left
             {
@@ -221,7 +162,11 @@ public class SlimeMovement : MonoBehaviour
 
             if (isTouchingCeiling && SlimeTouchingDirectionLiterally().y != -1)
             {
-                rigidBody.linearVelocityY += 1f;
+                rigidBody.linearVelocityY += 0.5f;
+            }
+            if (isTouchingGround && SlimeTouchingDirectionLiterally().y != -1)
+            {
+                rigidBody.linearVelocityY -= 0.5f;
             }
             rigidBody.linearVelocity = new Vector2(moveInput * speed, rigidBody.linearVelocity.y);
         }
@@ -233,26 +178,29 @@ public class SlimeMovement : MonoBehaviour
 
     void VerticalMovement()
     {
-        int zRotationValue = 0;
-        Vector2 collisionDirections = GetCollisionDirection(GetCollisionPointsWithRotation(hitbox), groundLayer);
 
-        bool isTouchingWallLeft = (-(Vector2)transform.right == Vector2.left && collisionDirections.x == -1) || ((Vector2)transform.right == Vector2.left && collisionDirections.x == 1) || (-(Vector2)transform.up == Vector2.left && collisionDirections.y == -1);
-        Debug.Log("IsTouchingWallLeft: " + isTouchingWallLeft);
+        if (isRotating)
+            return;
+        int zRotationValue = 0;
+        bool isTouchingWallLeft = Physics2D.Raycast(transform.position, Vector2.left, 0.45f, groundLayer) ||
+                                    Physics2D.Raycast(transform.position + new Vector3(0, .21f, 0), Vector2.left, 0.45f, groundLayer) ||
+                                    Physics2D.Raycast(transform.position - new Vector3(0, .21f, 0), Vector2.left, 0.45f, groundLayer);
         if (isTouchingWallLeft)
         {
             zRotationValue = 270;
         }
-        bool isTouchingWallRight = (-(Vector2)transform.right == Vector2.right && collisionDirections.x == -1) || ((Vector2)transform.right == Vector2.right && collisionDirections.x == 1) || (-(Vector2)transform.up == Vector2.right && collisionDirections.y == -1);
+        bool isTouchingWallRight = Physics2D.Raycast(transform.position, Vector2.right, 0.45f, groundLayer) ||
+                                    Physics2D.Raycast(transform.position + new Vector3(0, .21f, 0), Vector2.right, 0.45f, groundLayer) ||
+                                    Physics2D.Raycast(transform.position - new Vector3(0, .21f, 0), Vector2.right, 0.45f, groundLayer);
         if (isTouchingWallRight)
         {
             zRotationValue = 90;
         }
-        Debug.Log("IsTouchingWallRight: " + isTouchingWallRight);
 
         float moveInput = Input.GetAxisRaw("Vertical");
 
 
-        if (moveInput != 0 && (isTouchingWallLeft || isTouchingWallRight))
+        if (moveInput != 0 && (isTouchingWallLeft || isTouchingWallRight) && !movingOverEdge && !isRotating)
         {
             Debug.Log("rotating2");
 
@@ -263,6 +211,16 @@ public class SlimeMovement : MonoBehaviour
             else if (moveInput > 0)
             {
                 gameObject.transform.rotation = Quaternion.Euler(isTouchingWallLeft ? 180 : 0, 0, zRotationValue); // rotates right
+            }
+            if (isTouchingWallLeft && SlimeTouchingDirectionLiterally().y != Vector2.left.y)
+            {
+                rigidBody.linearVelocityX -= 0.48f;
+                Debug.Log("isTouchingWallLeft");
+            }
+            if (isTouchingWallRight && SlimeTouchingDirectionLiterally().y != Vector2.right.y)
+            {
+                rigidBody.linearVelocityX += 0.48f;
+                Debug.Log("isTouchingWallRight");
             }
 
             rigidBody.linearVelocity = new Vector2(rigidBody.linearVelocity.x, moveInput * speed);
@@ -279,63 +237,102 @@ public class SlimeMovement : MonoBehaviour
 
         bool isTouchingWallRight = Physics2D.Raycast(transform.position, transform.right, 0.45f, groundLayer);
         bool isTouchingWallLeft = Physics2D.Raycast(transform.position, -transform.right, 0.45f, groundLayer);
-        bool isTouchingWallDown = Physics2D.Raycast(transform.position, -transform.up, 0.35f, groundLayer);
-        bool isTouchingWallUp = Physics2D.Raycast(transform.position, transform.up, 0.35f, groundLayer);
+        bool isTouchingWallDown = Physics2D.Raycast(transform.position, -transform.up, 0.35f, groundLayer) || Physics2D.Raycast(transform.position + .20f*- transform.right, -transform.up, 0.35f, groundLayer) || Physics2D.Raycast(transform.position + .20f*- transform.right, -transform.up, 0.35f, groundLayer);
+        bool isTouchingWallUp = Physics2D.Raycast(transform.position, transform.up, 0.35f, groundLayer) || Physics2D.Raycast(transform.position + .25f*- transform.right, transform.up, 0.35f, groundLayer) || Physics2D.Raycast(transform.position + .25f*- transform.right, transform.up, 0.35f, groundLayer);
+        Debug.Log("isTouchingWallDown: "+isTouchingWallDown);
         return isTouchingWallDown || isTouchingWallLeft || isTouchingWallRight || isTouchingWallUp;
     }
 
-
-    bool IsTouchingGround()
+    bool TouchingWater()
     {
-        Vector2 bottomCenter = GetBottomCenter(gameObject);
-        Vector2 bottomLeft = GetBottomLeft(gameObject);
-        Vector2 bottomRight = GetBottomRight(gameObject);
+        Vector2 colliderSize = hitbox.size;
+        Vector2 colliderCenter = hitbox.bounds.center;
 
-        return Physics2D.OverlapPoint(bottomCenter, groundLayer)
-            || Physics2D.OverlapPoint(bottomLeft, groundLayer)
-            || Physics2D.OverlapPoint(bottomRight, groundLayer);
+        Collider2D[] hits = Physics2D.OverlapBoxAll(colliderCenter, colliderSize, 0f, waterLayer);
 
+        return hits.Length > 0;
     }
+
     Vector2 SlimeTouchingDirectionLiterally()
     {
-        float yOffset = (transform.localScale.y > 0) ? 0f : 1f;
+        float yOffset = (transform.localScale.y > 0) ? 0f : 1f; // Adjust based on how flipping is implemented
         float baseY = transform.position.y - yOffset;
 
         Vector3 bottomCenter = new Vector3(transform.position.x, baseY, 0f);
         Vector3 bottomLeft = new Vector3(transform.position.x - 0.45f, baseY, 0f);
-        Vector3 bottomLeft2 = new Vector3(transform.position.x - 0.4f, baseY, 0f);
         Vector3 bottomRight = new Vector3(transform.position.x + 0.45f, baseY, 0f);
-        Vector3 bottomRight2 = new Vector3(transform.position.x + 0.4f, baseY, 0f);
 
         Vector2 vector = new Vector2();
         if (Physics2D.Raycast(transform.position, -transform.right, 0.45f, groundLayer))
             vector.x = -1;
-        if (Physics2D.Raycast(transform.position, transform.right, 0.45f, groundLayer))
+        if (Physics2D.Raycast(transform.position + new Vector3(0, .22f, 0), transform.right, 0.45f, groundLayer) ||
+            Physics2D.Raycast(transform.position - new Vector3(0, .22f, 0), transform.right, 0.45f, groundLayer) ||
+            Physics2D.Raycast(transform.position, transform.right, 0.45f, groundLayer))
             vector.x = 1;
         if (Physics2D.Raycast(bottomCenter, -transform.up, 0.32f, groundLayer) ||
             Physics2D.Raycast(bottomLeft, -transform.up, 0.32f, groundLayer) ||
-            Physics2D.Raycast(bottomLeft2, -transform.up, 0.32f, groundLayer) ||
-            Physics2D.Raycast(bottomRight2, -transform.up, 0.32f, groundLayer) ||
             Physics2D.Raycast(bottomRight, -transform.up, 0.32f, groundLayer))
         {
             vector.y = -1;
         }
         if (Physics2D.Raycast(transform.position, transform.up, 0.32f, groundLayer))
             vector.y = 1;
-
-        // Debug.DrawRay(bottomCenter, -transform.up * .32f, Color.red);
-        // Debug.DrawRay(bottomLeft, -transform.up * .32f, Color.yellow);
-        // Debug.DrawRay(bottomLeft2, -transform.up * .32f, Color.yellow);
-        // Debug.DrawRay(bottomRight, -transform.up * .32f, Color.green);
-        // Debug.DrawRay(bottomRight2, -transform.up * .32f, Color.green);
-
-        // Debug.DrawRay(transform.position, transform.up * .32f, Color.red);
-
-        // Debug.DrawRay(transform.position, -transform.right * .45f, Color.red);
-        // Debug.DrawRay(transform.position, transform.right * .45f, Color.red);
         return vector;
     }
 
+    Vector2 SlimeTouchingDirection()
+    {
+
+        Vector2 vector = new Vector2();
+        if (Physics2D.Raycast(transform.position, Vector2.left, 0.45f, groundLayer))
+            vector.x = -1;
+        else if (Physics2D.Raycast(transform.position, Vector2.right, 0.45f, groundLayer) ||
+                Physics2D.Raycast(transform.position + new Vector3(0, 0.22f, 0), Vector2.right, 0.45f, groundLayer) ||
+                Physics2D.Raycast(transform.position - new Vector3(0, 0.22f, 0), Vector2.right, 0.45f, groundLayer))
+            vector.x = 1;//
+        if (Physics2D.Raycast(transform.position, Vector2.down, 0.32f, groundLayer))
+            vector.y = -1;
+        else if (Physics2D.Raycast(transform.position, Vector2.up, 0.32f, groundLayer))
+            vector.y = 1;
+        return vector;
+    }
+    Vector2 WallTouchingDirection()
+    {
+        if (!TouchingTiles())
+            return Vector2.zero;
+        Vector2 vector = new Vector2();
+        if (Mathf.Approximately(transform.eulerAngles.z, 0f))
+        {
+            vector.y = -1;
+        }
+        else if (Mathf.Approximately(transform.eulerAngles.z, 90f))
+        {
+            vector.x = 1;
+        }
+        else if (Mathf.Approximately(transform.eulerAngles.z, 180f))
+            vector.y = 1;
+        else if (Mathf.Approximately(transform.eulerAngles.z, 270f))
+        {
+            vector.x = -1;
+        }
+        return vector;
+    }
+
+
+    void Jump()
+    {
+        Vector2 slimeUp = transform.up;
+        if (Input.GetKeyDown(KeyCode.Space) && !movingOverEdge)
+        {
+            Debug.Log("Jumping");
+            if (SlimeTouchingDirectionLiterally().y == -1)
+            {
+                Debug.Log("Touching Ground:" + slimeUp * jumpForce);
+                rigidBody.linearVelocity += slimeUp * jumpForce;
+
+            }
+        }
+    }
 
     Vector2[] GetCollisionPointsWithRotation(BoxCollider2D collider)
     {
@@ -436,8 +433,10 @@ public class SlimeMovement : MonoBehaviour
         }
         return hits;
     }
-    Vector2 GetCollisionDirection(Vector2[] points, LayerMask groundLayer, float checkRadius = 0.02f)
+
+    Vector2 GetCollisionDirection(float checkRadius = 0.02f)
     {
+        Vector2[] points = GetCollisionPointsWithRotation(hitbox);
         bool[] hits = new bool[points.Length];
 
         for (int i = 0; i < points.Length; i++)
@@ -475,100 +474,21 @@ public class SlimeMovement : MonoBehaviour
         return direction;
     }
 
-
-    Vector2 GetBottomCenter(GameObject obj)
-    {
-        BoxCollider2D collider = obj.GetComponent<BoxCollider2D>();
-        Transform t = collider.transform;
-
-        Vector2 worldCenter = (Vector2)t.position + collider.offset;
-
-        float halfHeight = collider.size.y / 2f;
-
-        Vector2 down = -transform.up;
-
-        Vector2 bottomCenter = worldCenter + down * halfHeight;
-
-        return bottomCenter;
-    }
-    Vector2 GetBottomLeft(GameObject obj)
-    {
-        BoxCollider2D collider = obj.GetComponent<BoxCollider2D>();
-        Transform t = collider.transform;
-
-        Vector2 worldCenter = (Vector2)t.position + collider.offset;
-        float halfHeight = collider.size.y / 2f;
-        float halfWidth = collider.size.x / 2f;
-
-        Vector2 down = -t.up;
-        Vector2 left = -t.right;
-
-        return worldCenter + down * halfHeight + left * halfWidth;
-    }
-    Vector2 GetBottomRight(GameObject obj)
-    {
-        BoxCollider2D collider = obj.GetComponent<BoxCollider2D>();
-        Transform t = collider.transform;
-
-        Vector2 worldCenter = (Vector2)t.position + collider.offset;
-        float halfHeight = collider.size.y / 2f;
-        float halfWidth = collider.size.x / 2f;
-
-        Vector2 down = -t.up;
-        Vector2 right = t.right;
-
-        return worldCenter + down * halfHeight + right * halfWidth;
-    }
-
-    Vector2 SlimeTouchingDirection()
-    {
-
-        Vector2 vector = new Vector2();
-        if (Physics2D.Raycast(transform.position, Vector2.left, 0.45f, groundLayer))
-            vector.x = -1;
-        else if (Physics2D.Raycast(transform.position, Vector2.right, 0.45f, groundLayer))
-            vector.x = 1;
-        if (Physics2D.Raycast(transform.position, Vector2.down, 0.32f, groundLayer))
-            vector.y = -1;
-        else if (Physics2D.Raycast(transform.position, Vector2.up, 0.32f, groundLayer))
-            vector.y = 1;
-        return vector;
-    }
-
-
-    void Jump()
-    {
-        Vector2 slimeUp = transform.up;
-        if (Input.GetKeyDown(KeyCode.Space) && !movingOverEdge)
-        {
-            Debug.Log("Jumping");
-            if (GetCollisionDirection(GetCollisionPointsWithRotation(hitbox), groundLayer).y == -1)
-            {
-                Debug.Log("Touching Ground:" + slimeUp * jumpForce);
-                rigidBody.linearVelocity += slimeUp * jumpForce;
-            }
-        }
-    }
-
-
     void Handle270Degrees()
     {
         Vector3 bottomCenter = new Vector3(transform.position.x, transform.position.y, 0f);
         Vector3 bottomLeft = new Vector3(transform.position.x - transform.right.x * 0.45f, transform.position.y, 0f);
-        Vector3 bottomLeft2 = new Vector3(transform.position.x - transform.right.x * 0.3f, transform.position.y, 0f);
-        Vector3 bottomLeft3 = new Vector3(transform.position.x - transform.right.x * 0.35f, transform.position.y, 0f);
         Vector3 bottomRight = new Vector3(transform.position.x + transform.right.x * 0.45f, transform.position.y, 0f);
-        Vector3 bottomRight2 = new Vector3(transform.position.x + transform.right.x * 0.3f, transform.position.y, 0f);
 
         bool center = Physics2D.Raycast(bottomCenter, -transform.up, 0.32f, groundLayer);
         bool back = Physics2D.Raycast(bottomLeft, -transform.up, 0.32f, groundLayer);
-        bool back2 = Physics2D.Raycast(bottomLeft2, -transform.up, 0.32f, groundLayer);
-        bool back3 = Physics2D.Raycast(bottomLeft3, -transform.up, 0.32f, groundLayer);
         bool front = Physics2D.Raycast(bottomRight, -transform.up, 0.32f, groundLayer);
-        bool front2 = Physics2D.Raycast(bottomRight2, -transform.up, 0.32f, groundLayer);
 
+        Debug.Log("center: " + center);
+        Debug.Log("back: " + back);
+        Debug.Log("front: " + front);
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        if (back && back3 && !back2 && !front && !front2 && !center && (input.x != 0 || input.y != 0))
+        if (back && center && !front && (input.x != 0 || input.y != 0))
         {
 
             isRotating = true;
@@ -578,6 +498,7 @@ public class SlimeMovement : MonoBehaviour
             float newX = 0f;
 
             Vector2 direction = SlimeTouchingDirection();
+            Debug.Log(direction);
             if (direction.x != 0 && input.y == 0) // if on vertical wall and not pressing vertical movement
                 return;
 
@@ -586,19 +507,21 @@ public class SlimeMovement : MonoBehaviour
 
 
             Vector2 directionToGo = transform.forward;
+            Debug.Log("forward: " + input);
             if (input.x > 0)
             {
                 newX = Mathf.Ceil(transform.position.x / grid) * grid;
+                Debug.Log(newX);
                 StartCoroutine(MoveEdgeOverTime(new Vector2(newX + hitbox.size.x / 2 - .25f - transform.position.x, direction.y / 2 * 1.1f)));
             }
             else if (input.x < 0)
             {
-                newX = Mathf.Floor((float)Math.Floor(transform.position.x) / grid) * grid;
+                newX = Mathf.Floor(transform.position.x / grid) * grid;
                 StartCoroutine(MoveEdgeOverTime(new Vector2(newX - hitbox.size.y / 2 + .1f - transform.position.x, direction.y / 2 * 1.1f)));
             }
             else
             {
-                newX = Mathf.Round((float)Math.Floor(transform.position.x) / grid) * grid;
+                newX = Mathf.Round(transform.position.x / grid) * grid;
                 StartCoroutine(MoveEdgeOverTime(new Vector2(newX - transform.position.x, direction.y / 2 * 1.2f)));
             }
         }
@@ -709,6 +632,8 @@ public class SlimeMovement : MonoBehaviour
 
         while (elapsedTime < 0.1f)
         {
+            Debug.Log(isRotating);
+            Debug.Log(transform.rotation.eulerAngles);
             float fraction = elapsedTime / 0.1f;
             transform.position = Vector3.Lerp(targetPosition, targetPosition2, fraction);
             elapsedTime += Time.deltaTime;
@@ -726,4 +651,5 @@ public class SlimeMovement : MonoBehaviour
         isRotating = false;
 
     }
+
 }
