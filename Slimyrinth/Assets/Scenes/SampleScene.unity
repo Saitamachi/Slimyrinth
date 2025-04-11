@@ -5244,6 +5244,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1601810382950086665, guid: d4c474bfb5294e744a3bd6efdff2bb8e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2571073137725651622, guid: d4c474bfb5294e744a3bd6efdff2bb8e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5324,6 +5328,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3732280549905001413, guid: d4c474bfb5294e744a3bd6efdff2bb8e, type: 3}
+      propertyPath: slime
+      value: 
+      objectReference: {fileID: 1992383950}
+    - target: {fileID: 4413403963369501160, guid: d4c474bfb5294e744a3bd6efdff2bb8e, type: 3}
+      propertyPath: m_Name
+      value: SelectLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720926746452883952, guid: d4c474bfb5294e744a3bd6efdff2bb8e, type: 3}
+      propertyPath: slime
+      value: 
+      objectReference: {fileID: 1992383950}
     - target: {fileID: 6792869299088352615, guid: d4c474bfb5294e744a3bd6efdff2bb8e, type: 3}
       propertyPath: slime
       value: 
@@ -5332,6 +5348,18 @@ PrefabInstance:
       propertyPath: isOpen
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7111209599183486735, guid: d4c474bfb5294e744a3bd6efdff2bb8e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186619709726810735, guid: d4c474bfb5294e744a3bd6efdff2bb8e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 92
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344762725379465328, guid: d4c474bfb5294e744a3bd6efdff2bb8e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 349071190, guid: 9d2c0653d78357049bf01ab945997345, type: 3}
     - target: {fileID: 8751670487268020387, guid: d4c474bfb5294e744a3bd6efdff2bb8e, type: 3}
       propertyPath: m_SortingOrder
       value: 15
@@ -5348,7 +5376,8 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnResumePressed
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5811633282681937071, guid: d4c474bfb5294e744a3bd6efdff2bb8e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

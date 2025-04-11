@@ -4,28 +4,31 @@ using UnityEngine.SceneManagement;
 public class SettingsMenu : MonoBehaviour
 {
     public GameObject uiManager;
-    private SettingsMenuToggle settingsMenuToggle;
-    
+    private UIToggler uiToggler;
+    public GameObject levelSelectorButtonPanelSwitch;
+
+
 
     public void Start()
     {
-        settingsMenuToggle = uiManager.GetComponent<SettingsMenuToggle>();
+        uiToggler = uiManager.GetComponent<UIToggler>();
     }
     public void OnResumePressed()
     {
         Debug.Log("Resume button pressed!");
-        // Add your logic here, e.g., hide the settings panel
-        gameObject.SetActive(false);
+        uiToggler.ClosePanels();
     }
 
 
     public void OnRestartPressed()
     {
         Debug.Log("Restart button pressed!");
-        // Add your logic here, e.g., hide the settings panel
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
-        settingsMenuToggle.isOpen = false;
+        uiToggler.ClosePanels();
     }
-
+    public void OnLevelSelectPressed()
+    {
+        Debug.Log("Level Select button pressed!");
+        uiToggler.SelectPanel(levelSelectorButtonPanelSwitch);
+    }
 }
