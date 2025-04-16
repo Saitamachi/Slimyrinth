@@ -1,13 +1,13 @@
+using System;
 using System.Collections.Generic;
 using UnityEditor;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
 public class LevelData
 {
-    public SceneAsset scene;
+    public String sceneName;
     public Sprite previewImage;
     public bool unlocked;
 }
@@ -66,15 +66,12 @@ public class LoadLevels : MonoBehaviour
             rt.anchoredPosition = new Vector2(col * (buttonWidth + spacing) - 1 * (buttonWidth + spacing), -row * (buttonHeight + spacing) +1 * (buttonHeight + spacing));
 
             // Add a listener to load the scene when the button is clicked
-            button.onClick.AddListener(() => LoadScene(level.scene));
+            button.onClick.AddListener(() => LoadScene(level.sceneName));
         }
     }
 
-    void LoadScene(SceneAsset sceneAsset)
+    void LoadScene(String sceneName)
     {
-        // Convert SceneAsset to a string (path of the scene)
-        string sceneName = sceneAsset.name;
-
         // You can load the scene here using Unity's SceneManager (ensure your scene is in Build Settings)
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }

@@ -235,22 +235,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
-  - scene: {fileID: 102900000, guid: 77874d861f07f47489513336faf7e002, type: 3}
+  - sceneName: MovementScene
     previewImage: {fileID: -573127402515806022, guid: 3e6986940d306034bbb5b050f97b1c1e, type: 3}
     unlocked: 1
-  - scene: {fileID: 102900000, guid: 8c9cfa26abfee488c85f1582747f6a02, type: 3}
+  - sceneName: SampleScene
     previewImage: {fileID: 241291237998619879, guid: 1bea3c39acaad5442919f1352c80d951, type: 3}
     unlocked: 1
-  - scene: {fileID: 102900000, guid: 8c9cfa26abfee488c85f1582747f6a02, type: 3}
+  - sceneName: SampleScene
     previewImage: {fileID: 241291237998619879, guid: 1bea3c39acaad5442919f1352c80d951, type: 3}
     unlocked: 0
-  - scene: {fileID: 102900000, guid: 8c9cfa26abfee488c85f1582747f6a02, type: 3}
+  - sceneName: SampleScene
     previewImage: {fileID: 241291237998619879, guid: 1bea3c39acaad5442919f1352c80d951, type: 3}
     unlocked: 0
-  - scene: {fileID: 102900000, guid: 8c9cfa26abfee488c85f1582747f6a02, type: 3}
+  - sceneName: SampleScene
     previewImage: {fileID: 241291237998619879, guid: 1bea3c39acaad5442919f1352c80d951, type: 3}
     unlocked: 0
-  - scene: {fileID: 102900000, guid: 8c9cfa26abfee488c85f1582747f6a02, type: 3}
+  - sceneName: SampleScene
     previewImage: {fileID: 241291237998619879, guid: 1bea3c39acaad5442919f1352c80d951, type: 3}
     unlocked: 0
   buttonParent: {fileID: 1503252431176934101}
