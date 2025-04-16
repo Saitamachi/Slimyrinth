@@ -36,6 +36,8 @@ public class SlimeMovement : MonoBehaviour
 
     void Update()
     {
+        isPaused = CanvasManager.Instance.uiManager.GetComponent<UIToggler>().isPaused;
+
         Movement();
         Jump();
     }
@@ -593,7 +595,7 @@ public class SlimeMovement : MonoBehaviour
 
             if (!jumping)
                 Physics2D.gravity = -transform.right * 17f;
-                
+
             Debug.Log("test10");
         }
     }

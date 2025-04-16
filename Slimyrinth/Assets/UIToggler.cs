@@ -5,14 +5,10 @@ public class UIToggler : MonoBehaviour
 {
     public List<GameObject> panels;
 
-    public GameObject slime;
-    private SlimeMovement slimeMovement;
+    public bool isPaused = false;
 
     void Start()
     {
-        Debug.Log("slime movement");
-        slimeMovement = slime.GetComponent<SlimeMovement>();
-        Debug.Log("slime movement: "+ slimeMovement);
         if (panels == null)
         {
             panels = new List<GameObject>();
@@ -51,21 +47,25 @@ public class UIToggler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("test100");
         bool anyActive = false;
+
+
+
 
         foreach (GameObject panel in panels)
         {
             if (panel.activeSelf)
             {
                 anyActive = true;
-                slimeMovement.isPaused = true;
+                isPaused = true;
                 break;
             }
         }
 
         if (!anyActive)
         {
-            slimeMovement.isPaused = false;
+            isPaused = false;
         }
 
         OpenPanel();

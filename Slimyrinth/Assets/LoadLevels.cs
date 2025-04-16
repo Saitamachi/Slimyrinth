@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -34,6 +37,8 @@ public class LoadLevels : MonoBehaviour
         // Clear previous buttons
         foreach (Transform child in buttonParent)
         {
+            if (child.name == "Back")
+                continue;
             Destroy(child.gameObject);
         }
 
@@ -42,29 +47,49 @@ public class LoadLevels : MonoBehaviour
         for (int i = 0; i < levels.Count; i++)
         {
             LevelData level = levels[i];
-            GameObject buttonObj = Instantiate(buttonPrefab, buttonParent);
+            GameObject buttonCard = Instantiate(buttonPrefab, buttonParent);
+            Transform buttonTransform = buttonCard.transform.Find("Image");
+            GameObject buttonObj = buttonTransform.gameObject;
+
+
 
             Button button = buttonObj.GetComponent<Button>();
             Image buttonImage = buttonObj.GetComponent<Image>();
             button.interactable = level.unlocked;
+
+
+            Transform textTransform = buttonCard.transform.Find("LevelName");
+            GameObject textObj = textTransform.gameObject;
+
+            TextMeshProUGUI text = textObj.GetComponent<TextMeshProUGUI>();
+            string formattedName = Regex.Replace(level.sceneName, "(\\B[A-Z0-9])", " $1");
+            text.text = formattedName;
 
             if (buttonImage != null && level.previewImage != null)
             {
                 buttonImage.sprite = level.previewImage;
             }
 
-            RectTransform rt = buttonObj.GetComponent<RectTransform>();
+
+
+            RectTransform rt = buttonCard.GetComponent<RectTransform>();
             int row = i / columns;
             int col = i % columns;
 
             float buttonWidth = rt.rect.width * rt.localScale.x;
             float buttonHeight = rt.rect.height * rt.localScale.y;
-            float spacing = 60f;
+            float spacingX = 60f;
+            float spacingY = 20f;
 
             rt.anchoredPosition = new Vector2(
-                col * (buttonWidth + spacing) - 1 * (buttonWidth + spacing),
-                -row * (buttonHeight + spacing) + 1 * (buttonHeight + spacing)
+                col * (buttonWidth + spacingX) - 1 * (buttonWidth + spacingX),
+                -row * (buttonHeight + spacingY) + 1 * (buttonHeight + spacingY)
             );
+
+            if (levels[i].sceneName == SceneManager.GetActiveScene().name)
+            {
+                //buttonImage.transform.localScale = new Vector3(1.1f, 1.1f, 0f);
+            }
 
             button.onClick.AddListener(() => LoadScene(level.sceneName));
         }
