@@ -7206,6 +7206,10 @@ PrefabInstance:
       propertyPath: levels.Array.data[6].previewImage
       value: 
       objectReference: {fileID: 241291237998619879, guid: 1bea3c39acaad5442919f1352c80d951, type: 3}
+    - target: {fileID: 5844890654296273465, guid: d4c474bfb5294e744a3bd6efdff2bb8e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6792869299088352615, guid: d4c474bfb5294e744a3bd6efdff2bb8e, type: 3}
       propertyPath: slime
       value: 
