@@ -58,18 +58,33 @@ public class LoadLevels : MonoBehaviour
             int col = i % columns;  // Column is the remainder of index divided by the number of columns
 
             // Get button width and height from the prefab's RectTransform
-            float buttonWidth = rt.rect.width  * rt.localScale.x;  // Width of the button (from RectTransform)
-            float buttonHeight = rt.rect.height  * rt.localScale.y; // Height of the button (from RectTransform)
+            float buttonWidth = rt.rect.width * rt.localScale.x;  // Width of the button (from RectTransform)
+            float buttonHeight = rt.rect.height * rt.localScale.y; // Height of the button (from RectTransform)
             float spacing = 60f; // Space between buttons, adjust as necessary
 
             // Position calculation: 3 columns, 2 rows, starting top-left
-            rt.anchoredPosition = new Vector2(col * (buttonWidth + spacing) - 1 * (buttonWidth + spacing), -row * (buttonHeight + spacing) +1 * (buttonHeight + spacing));
+            rt.anchoredPosition = new Vector2(col * (buttonWidth + spacing) - 1 * (buttonWidth + spacing), -row * (buttonHeight + spacing) + 1 * (buttonHeight + spacing));
 
             // Add a listener to load the scene when the button is clicked
             button.onClick.AddListener(() => LoadScene(level.sceneName));
         }
     }
 
+
+    public void NextLevel(String currentLevel)
+    {
+        // You can load the scene here using Unity's SceneManager (ensure your scene is in Build Settings)
+        int currentIndex = levels.FindIndex(level => level.sceneName == currentLevel);
+        if (currentIndex != -1 && currentIndex + 1 < levels.Count)
+        {
+            levels[currentIndex + 1].unlocked = true;
+            LoadScene(levels[currentIndex + 1].sceneName);
+        }
+        else
+        {
+            Debug.LogWarning("Current level not found in level list!");
+        }
+    }
     void LoadScene(String sceneName)
     {
         // You can load the scene here using Unity's SceneManager (ensure your scene is in Build Settings)
