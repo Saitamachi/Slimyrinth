@@ -3,20 +3,18 @@ using UnityEngine.SceneManagement;
 
 public class SettingsMenu : MonoBehaviour
 {
-    public GameObject uiManager;
-    private UIToggler uiToggler;
+
     public GameObject levelSelectorButtonPanelSwitch;
 
 
 
     public void Start()
     {
-        uiToggler = uiManager.GetComponent<UIToggler>();
     }
     public void OnResumePressed()
     {
         Debug.Log("Resume button pressed!");
-        uiToggler.ClosePanels();
+        CanvasManager.Instance.uiManager.GetComponent<UIToggler>().ClosePanels();
     }
 
 
@@ -24,11 +22,11 @@ public class SettingsMenu : MonoBehaviour
     {
         Debug.Log("Restart button pressed!");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        uiToggler.ClosePanels();
+        CanvasManager.Instance.uiManager.GetComponent<UIToggler>().ClosePanels();
     }
     public void OnLevelSelectPressed()
     {
         Debug.Log("Level Select button pressed!");
-        uiToggler.SelectPanel(levelSelectorButtonPanelSwitch);
+        CanvasManager.Instance.uiManager.GetComponent<UIToggler>().SelectPanel(levelSelectorButtonPanelSwitch);
     }
 }

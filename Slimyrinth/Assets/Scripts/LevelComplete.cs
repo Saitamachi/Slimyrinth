@@ -5,24 +5,21 @@ using UnityEngine.SceneManagement;
 public class LevelComplete : MonoBehaviour
 {
 
-    public GameObject levelsPanel;
     private LoadLevels loadLevels;
-
 
     public void Start()
     {
-        if(levelsPanel){
-            loadLevels = levelsPanel.GetComponent<LoadLevels>();
-        }   
+        loadLevels = CanvasManager.Instance.levelsPanel.GetComponent<LoadLevels>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            if(!loadLevels)
+            if (!loadLevels)
                 return;
 
+            Debug.Log("Next Level");
 
             loadLevels.NextLevel(SceneManager.GetActiveScene().name);
         }

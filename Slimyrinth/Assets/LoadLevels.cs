@@ -19,56 +19,57 @@ public class LoadLevels : MonoBehaviour
     public List<LevelData> levels;
     public Transform buttonParent;
     public GameObject buttonPrefab;
+
+
+
     void Start()
     {
         if (levels == null)
-        {
             levels = new List<LevelData>();
+
+        BuildLevelButtons();
+    }
+    public void BuildLevelButtons()
+    {
+        // Clear previous buttons
+        foreach (Transform child in buttonParent)
+        {
+            Destroy(child.gameObject);
         }
 
+        int columns = 3;
 
-        int rows = 2;  // Number of rows
-        int columns = 3;  // Number of columns
-
-        // Iterate over all the levels and create buttons dynamically
         for (int i = 0; i < levels.Count; i++)
         {
             LevelData level = levels[i];
-
-            // Instantiate the prefab for each level button
             GameObject buttonObj = Instantiate(buttonPrefab, buttonParent);
 
-            // Get the Button and Image components from the instantiated prefab
             Button button = buttonObj.GetComponent<Button>();
             Image buttonImage = buttonObj.GetComponent<Image>();
-            button.interactable = levels[i].unlocked;
+            button.interactable = level.unlocked;
 
-            // Set the button's image (preview of the level)
             if (buttonImage != null && level.previewImage != null)
             {
-                buttonImage.sprite = level.previewImage; // Set the image to show as the button's preview
+                buttonImage.sprite = level.previewImage;
             }
 
-            // Optionally set button size and position if needed
             RectTransform rt = buttonObj.GetComponent<RectTransform>();
-            //rt.localScale = Vector3.one;  // Reset scale if needed
+            int row = i / columns;
+            int col = i % columns;
 
-            // Calculate the position for the button in a 3x2 grid
-            int row = i / columns;  // Row is determined by the index divided by the number of columns
-            int col = i % columns;  // Column is the remainder of index divided by the number of columns
+            float buttonWidth = rt.rect.width * rt.localScale.x;
+            float buttonHeight = rt.rect.height * rt.localScale.y;
+            float spacing = 60f;
 
-            // Get button width and height from the prefab's RectTransform
-            float buttonWidth = rt.rect.width * rt.localScale.x;  // Width of the button (from RectTransform)
-            float buttonHeight = rt.rect.height * rt.localScale.y; // Height of the button (from RectTransform)
-            float spacing = 60f; // Space between buttons, adjust as necessary
+            rt.anchoredPosition = new Vector2(
+                col * (buttonWidth + spacing) - 1 * (buttonWidth + spacing),
+                -row * (buttonHeight + spacing) + 1 * (buttonHeight + spacing)
+            );
 
-            // Position calculation: 3 columns, 2 rows, starting top-left
-            rt.anchoredPosition = new Vector2(col * (buttonWidth + spacing) - 1 * (buttonWidth + spacing), -row * (buttonHeight + spacing) + 1 * (buttonHeight + spacing));
-
-            // Add a listener to load the scene when the button is clicked
             button.onClick.AddListener(() => LoadScene(level.sceneName));
         }
     }
+
 
 
     public void NextLevel(String currentLevel)
@@ -78,6 +79,8 @@ public class LoadLevels : MonoBehaviour
         if (currentIndex != -1 && currentIndex + 1 < levels.Count)
         {
             levels[currentIndex + 1].unlocked = true;
+            Debug.Log(currentIndex);
+            BuildLevelButtons();
             LoadScene(levels[currentIndex + 1].sceneName);
         }
         else
@@ -89,5 +92,6 @@ public class LoadLevels : MonoBehaviour
     {
         // You can load the scene here using Unity's SceneManager (ensure your scene is in Build Settings)
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+        CanvasManager.Instance.uiManager.GetComponent<UIToggler>().ClosePanels();
     }
 }

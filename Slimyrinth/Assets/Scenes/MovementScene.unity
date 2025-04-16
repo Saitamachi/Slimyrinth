@@ -3023,6 +3023,11 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
+--- !u!1 &522304132 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1601810382950086665, guid: d4c474bfb5294e744a3bd6efdff2bb8e, type: 3}
+  m_PrefabInstance: {fileID: 1655425838147443834}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &895443454
 GameObject:
   m_ObjectHideFlags: 0
@@ -7352,6 +7357,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4562942904803052456, guid: edcd7ceb249513f46952f075a8148fcc, type: 3}
+      propertyPath: levelsPanel
+      value: 
+      objectReference: {fileID: 522304132}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

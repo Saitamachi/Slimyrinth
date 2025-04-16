@@ -238,19 +238,19 @@ MonoBehaviour:
   - sceneName: MovementScene
     previewImage: {fileID: -573127402515806022, guid: 3e6986940d306034bbb5b050f97b1c1e, type: 3}
     unlocked: 1
-  - sceneName: SampleScene
+  - sceneName: Level1
     previewImage: {fileID: 241291237998619879, guid: 1bea3c39acaad5442919f1352c80d951, type: 3}
     unlocked: 1
-  - sceneName: SampleScene
+  - sceneName: Level2
     previewImage: {fileID: 241291237998619879, guid: 1bea3c39acaad5442919f1352c80d951, type: 3}
     unlocked: 0
-  - sceneName: SampleScene
+  - sceneName: Level3
     previewImage: {fileID: 241291237998619879, guid: 1bea3c39acaad5442919f1352c80d951, type: 3}
     unlocked: 0
-  - sceneName: SampleScene
+  - sceneName: Level4
     previewImage: {fileID: 241291237998619879, guid: 1bea3c39acaad5442919f1352c80d951, type: 3}
     unlocked: 0
-  - sceneName: SampleScene
+  - sceneName: Level5
     previewImage: {fileID: 241291237998619879, guid: 1bea3c39acaad5442919f1352c80d951, type: 3}
     unlocked: 0
   buttonParent: {fileID: 1503252431176934101}
@@ -1263,6 +1263,7 @@ GameObject:
   - component: {fileID: 8751670487268020387}
   - component: {fileID: 5320378143957794477}
   - component: {fileID: 7284747612474748691}
+  - component: {fileID: 1408319117039038616}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1357,3 +1358,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1408319117039038616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8809424937841577707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 665b30ea8d541384f9b9fd2ee3b1e986, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelsPanel: {fileID: 1601810382950086665}
+  startPanel: {fileID: 5844890654296273465}
+  settingsPanel: {fileID: 1216348254290820269}
+  uiManager: {fileID: 4211776582156512159}
