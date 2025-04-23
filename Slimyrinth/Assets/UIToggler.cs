@@ -34,6 +34,9 @@ public class UIToggler : MonoBehaviour
             panel.SetActive(false);
         }
         newPanel.SetActive(true);
+        AchievementMenu test = newPanel.GetComponent<AchievementMenu>();
+        if(test != null)
+            test.BuildAchievementCards();
     }
 
     public void ClosePanels()

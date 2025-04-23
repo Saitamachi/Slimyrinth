@@ -12,7 +12,6 @@ public class LevelsMenu : MonoBehaviour
     }
     public void OnBackPressed()
     {
-        Debug.Log("Back button pressed!");
         CanvasManager.Instance.uiManager.GetComponent<UIToggler>().SelectPanel(backButtonPanelSwitch);
     }
 }

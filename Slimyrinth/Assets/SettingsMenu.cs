@@ -5,6 +5,7 @@ public class SettingsMenu : MonoBehaviour
 {
 
     public GameObject levelSelectorButtonPanelSwitch;
+    public GameObject achievementButtonPanelSwitch;
 
 
 
@@ -13,20 +14,22 @@ public class SettingsMenu : MonoBehaviour
     }
     public void OnResumePressed()
     {
-        Debug.Log("Resume button pressed!");
         CanvasManager.Instance.uiManager.GetComponent<UIToggler>().ClosePanels();
     }
 
 
     public void OnRestartPressed()
     {
-        Debug.Log("Restart button pressed!");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         CanvasManager.Instance.uiManager.GetComponent<UIToggler>().ClosePanels();
     }
     public void OnLevelSelectPressed()
     {
-        Debug.Log("Level Select button pressed!");
         CanvasManager.Instance.uiManager.GetComponent<UIToggler>().SelectPanel(levelSelectorButtonPanelSwitch);
+    }
+
+    public void OnAchievementPressed()
+    {
+        CanvasManager.Instance.uiManager.GetComponent<UIToggler>().SelectPanel(achievementButtonPanelSwitch);
     }
 }

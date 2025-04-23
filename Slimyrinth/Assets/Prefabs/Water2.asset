@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d5751a2c961df945a34295ccf5e576d, type: 3}
-  m_Name: Water
+  m_Name: Water2
   m_EditorClassIdentifier: 
   m_Cells:
   - m_Tile: {fileID: 0}
@@ -42,4 +42,4 @@ MonoBehaviour:
   m_LastPickedCellSize: {x: 1, y: 1, z: 1}
   m_LastPickedCellGap: {x: 0, y: 0, z: 0}
   m_Anchor: {x: 0.5, y: 0.5, z: 0.5}
-  m_Prefab: {fileID: 2015939061732293155, guid: 162b81d289d984f49a8e65c646bc2172, type: 3}
+  m_Prefab: {fileID: 2015939061732293155, guid: 761e8d0dfb046fc4ea291bacb22dcc48, type: 3}

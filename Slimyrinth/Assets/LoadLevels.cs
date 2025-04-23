@@ -37,7 +37,7 @@ public class LoadLevels : MonoBehaviour
         // Clear previous buttons
         foreach (Transform child in buttonParent)
         {
-            if (child.name == "Back")
+            if (child.name == "Back" || child.name == "Global Volume")
                 continue;
             Destroy(child.gameObject);
         }

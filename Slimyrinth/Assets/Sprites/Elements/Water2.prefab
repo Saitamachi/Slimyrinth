@@ -11,12 +11,11 @@ GameObject:
   - component: {fileID: 3505400869976165654}
   - component: {fileID: 1808449917522048188}
   - component: {fileID: 5924532901046055652}
-  - component: {fileID: -6015879706899203650}
-  - component: {fileID: 8394934532755378358}
-  - component: {fileID: 4971223365679793134}
-  - component: {fileID: -3094384059609730811}
+  - component: {fileID: -3435001413254064898}
+  - component: {fileID: 9108663794816673921}
+  - component: {fileID: 4675312030416057356}
   m_Layer: 0
-  m_Name: Fire 1
+  m_Name: Water2
   m_TagString: Elements
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2015939061732293155}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalPosition: {x: -5, y: -3, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -81,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2036002868, guid: 4df3c9137521cfc4a8b104b7302343c1, type: 3}
+  m_Sprite: {fileID: 432372465, guid: 4df3c9137521cfc4a8b104b7302343c1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,7 +118,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-6015879706899203650
+--- !u!114 &-3435001413254064898
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df2df85509f0c9d4f990335ad5861f7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!68 &8394934532755378358
+--- !u!68 &9108663794816673921
 EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,29 +160,28 @@ EdgeCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 0.11640024, y: 0.31365037}
-  - {x: -0.17912102, y: 0.3210187}
-  - {x: -0.31819916, y: 0.078243256}
-  - {x: -0.30652857, y: -0.17853546}
-  - {x: -0.19365549, y: -0.27948666}
-  - {x: -0.032426834, y: -0.32182026}
-  - {x: 0.05613041, y: -0.29563308}
-  - {x: 0.14025593, y: -0.2739675}
-  - {x: 0.259099, y: -0.24226165}
-  - {x: 0.24258614, y: 0.11689544}
-  - {x: 0.11737442, y: 0.31658316}
+  - {x: -0.0032205582, y: 0.28708363}
+  - {x: -0.0924201, y: 0.13603425}
+  - {x: -0.18542194, y: -0.022487164}
+  - {x: -0.2750249, y: -0.2628255}
+  - {x: -0.0854516, y: -0.4764943}
+  - {x: 0.08270073, y: -0.47027636}
+  - {x: 0.26075172, y: -0.26587343}
+  - {x: 0.16181183, y: -0.010802746}
+  - {x: 0.088196754, y: 0.16580486}
+  - {x: 0.00060129166, y: 0.2930262}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!114 &4971223365679793134
+--- !u!114 &4675312030416057356
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -195,16 +193,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8074186b276ca9d478c7667d23c95df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slimeSprite: {fileID: -8358309096455185993, guid: 9aa64b40e87906a449b6241801363d2c, type: 3}
---- !u!114 &-3094384059609730811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2015939061732293155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d82f39e4cd422094193ffd243bc38e53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  slimeSprite: {fileID: 4227487305069205755, guid: 16b0ed75f449f0c4f804400585d3156f, type: 3}

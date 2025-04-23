@@ -4,8 +4,12 @@ using UnityEngine.Tilemaps;
 
 public class PlayerElementCollision : MonoBehaviour
 {
-    public Tilemap tilemap; 
-    public string elementTag = "Elements"; 
+    public Tilemap tilemap;
+    public string elementTag = "Elements";
+
+    public Sprite defaultSprite;
+
+
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,8 +20,31 @@ public class PlayerElementCollision : MonoBehaviour
             {
                 SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
                 spriteRenderer.sprite = script.GetSprite();
-                Destroy(collision.gameObject);
+                DisableObject(collision.gameObject);
+
+                AchievementManager.Instance.GetComponent<AchievementManager>().UnlockAchievement(collision.name);
+
             }
         }
+    }
+
+
+    public void DisableObject(GameObject obj)
+    {
+        foreach (Transform child in tilemap.transform)
+        {
+            child.gameObject.SetActive(true);
+        }
+        obj.gameObject.SetActive(false);
+    }
+
+    public void DeleteObject()
+    {
+        foreach (Transform child in tilemap.transform)
+        {
+            if(!child.gameObject.activeSelf)
+                Destroy(child.gameObject);
+        }
+        GetComponent<SpriteRenderer>().sprite = defaultSprite;
     }
 }

@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 5924532901046055652}
   - component: {fileID: -6015879706899203650}
   - component: {fileID: 8394934532755378358}
-  - component: {fileID: 4528437856939902313}
+  - component: {fileID: 4971223365679793134}
+  - component: {fileID: -3094384059609730811}
   m_Layer: 0
   m_Name: Fire
   m_TagString: Elements
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 2015939061732293155}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: -3, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -80,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1382014719, guid: 4df3c9137521cfc4a8b104b7302343c1, type: 3}
+  m_Sprite: {fileID: -2036002868, guid: 4df3c9137521cfc4a8b104b7302343c1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -160,28 +161,29 @@ EdgeCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 0.016684055, y: 0.34884405}
-  - {x: -0.12633038, y: 0.12745237}
-  - {x: -0.2508049, y: -0.15800571}
-  - {x: -0.25817776, y: -0.32347894}
-  - {x: -0.14973974, y: -0.45086455}
-  - {x: 0.15291357, y: -0.44227433}
-  - {x: 0.24583769, y: -0.30916142}
-  - {x: 0.22097254, y: -0.10735154}
-  - {x: 0.1399374, y: 0.14915657}
-  - {x: 0.029389858, y: 0.34884405}
+  - {x: 0.11640024, y: 0.31365037}
+  - {x: -0.17912102, y: 0.3210187}
+  - {x: -0.31819916, y: 0.078243256}
+  - {x: -0.30652857, y: -0.17853546}
+  - {x: -0.19365549, y: -0.27948666}
+  - {x: -0.032426834, y: -0.32182026}
+  - {x: 0.05613041, y: -0.29563308}
+  - {x: 0.14025593, y: -0.2739675}
+  - {x: 0.259099, y: -0.24226165}
+  - {x: 0.24258614, y: 0.11689544}
+  - {x: 0.11737442, y: 0.31658316}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!114 &4528437856939902313
+--- !u!114 &4971223365679793134
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -194,3 +196,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slimeSprite: {fileID: -8358309096455185993, guid: 9aa64b40e87906a449b6241801363d2c, type: 3}
+--- !u!114 &-3094384059609730811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015939061732293155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d82f39e4cd422094193ffd243bc38e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabledAnimation: 1
+  moveAmount: 0.1

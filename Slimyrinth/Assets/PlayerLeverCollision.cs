@@ -15,6 +15,8 @@ public class PlayerLeverCollision : MonoBehaviour
             LeverController leverController = collision.gameObject.GetComponent<LeverController>(); // gets the script with the sprite
             if (leverController != null)
             {
+                AchievementManager.Instance.GetComponent<AchievementManager>().UnlockAchievement(collision.name);
+
                 leverController.Toggle();
                 StartCoroutine(ToggleLeverDelay());
 
