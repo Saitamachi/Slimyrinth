@@ -45,17 +45,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   achievements:
-  - name: Fire
+  - sprite: {fileID: -2036002868, guid: 4df3c9137521cfc4a8b104b7302343c1, type: 3}
+    name: Fire
     description: Discover the fire element for the first time
     unlocked: 0
-  - name: Water
+  - sprite: {fileID: 24219395, guid: 4df3c9137521cfc4a8b104b7302343c1, type: 3}
+    name: Water
     description: Discover the water element for the first time
     unlocked: 0
-  - name: Wind
+  - sprite: {fileID: 1244729644, guid: 4df3c9137521cfc4a8b104b7302343c1, type: 3}
+    name: Wind
     description: Discover the wind element for the first time
     unlocked: 0
-  - name: Lever
+  - sprite: {fileID: -3975624549204834352, guid: 341c39bf3b5c72144a17e2b57465477b, type: 3}
+    name: Lever
     description: Discover the lever for the first time
+    unlocked: 0
+  - sprite: {fileID: 6176333023336407051, guid: defa1f0fc2b9d2a4aa8b9a4c629aa159, type: 3}
+    name: Extinguisher
+    description: Extinguish fire with water for the first time
+    unlocked: 0
+  - sprite: {fileID: 5525541533554681480, guid: d9a024843227a9f41b03fcc0299ebc7a, type: 3}
+    name: Fire Blower
+    description: Ignite wood on fire using the wind element
+    unlocked: 0
+  - sprite: {fileID: 5673473207404411615, guid: b0a008e6e746c4348b1b69116de314af, type: 3}
+    name: Fire Skin
+    description: Ignite wood on fire using the fire element
     unlocked: 0
   unlockSound: {fileID: 8300000, guid: 541e80cdc7cffc4439d1147a8ec38c42, type: 3}
   audioSource: {fileID: 0}
